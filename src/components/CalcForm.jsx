@@ -19,8 +19,6 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-// TODO: submissions with commas
-
 const CalcForm = (props) => {
   const {
     isCalcFormExpanded,

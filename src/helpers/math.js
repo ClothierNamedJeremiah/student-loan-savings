@@ -1,6 +1,3 @@
-// TODO: The calc doesn't work with commas
-
-// Calculate Loan Payoff (Get Summary Details)
 export const calcLoanDetails = (currentBalance, monthlyPayment, annualInterestRate) => {
   // console.group('%c CALCULATING LOAN DETAILS', 'color: #004D40');
   // console.log(`currentBalance: ${currentBalance}`);

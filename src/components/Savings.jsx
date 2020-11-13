@@ -43,8 +43,6 @@ const Savings = (props) => {
     setValue(newValue);
   };
 
-  // TODO: Wrap Table Labels on Small ViewPort
-  // TODO: as the table gets smaller we can reduce Padding
   return (
     <div id="savings">
       <h2 className="bot-margin" id="title">Loan Savings</h2>
