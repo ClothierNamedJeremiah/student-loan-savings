@@ -1,4 +1,4 @@
-const formatMonthsToStr = (months) => {
+const toYearMonthString = (months) => {
   const years = Math.floor(months / 12);
   const monthsRem = months % 12;
 
@@ -22,4 +22,4 @@ const formatMonthsToStr = (months) => {
   return `${yearsText} ${monthsInYearText}`;
 };
 
-export default formatMonthsToStr;
+export default toYearMonthString;

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SavingsTableRow from './SavingsTableRow';
 
 import { toCurrencyString, toPercentString } from '../helpers/math';
-import formatMonthsToStr from '../helpers/formatter';
+import toYearMonthString from '../helpers/formatter';
 
 const TABLE_COLUMN_HEADERS = {
   additionalMonthlyPayment: [
@@ -40,7 +40,7 @@ const SavingsTable = (props) => {
             <SavingsTableRow
               data={[
                 columZeroFormatter(row[0]),
-                formatMonthsToStr(row[1]),
+                toYearMonthString(row[1]),
                 toCurrencyString(row[2]),
                 toCurrencyString(row[3]),
               ]}

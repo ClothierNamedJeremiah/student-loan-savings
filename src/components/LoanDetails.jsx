@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { toCurrencyString } from '../helpers/math';
-import formatMonthsToStr from '../helpers/formatter';
+import toYearMonthString from '../helpers/formatter';
 
 const LoanDetails = (props) => {
   const { loanDetails } = props;
@@ -10,7 +10,7 @@ const LoanDetails = (props) => {
 
   const years = Math.floor(months / 12);
 
-  const str = formatMonthsToStr(months);
+  const str = toYearMonthString(months);
 
   let payoffDesc = '';
   if (years === 0) {
