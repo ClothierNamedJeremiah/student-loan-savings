@@ -101,15 +101,3 @@ export const calcLoanSavings = (
     lowerInterestRate,
   };
 };
-
-// Input should be of type 'num' and not a string
-export const toCurrencyString = (num) => {
-  const significantFigures = (num % 1 === 0) ? 0 : 2;
-  return `$ ${num.toFixed(2)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`;
-};
-
-export const toPercentString = (num) => {
-  return `${num.toFixed(2)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} %`;
-};

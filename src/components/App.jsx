@@ -5,18 +5,7 @@ import LoanDetails from './LoanDetails';
 import Savings from './Savings';
 
 import { calcLoanDetails, calcLoanSavings } from '../helpers/math';
-
-const isValidCurrency = (val) => {
-  if (val === '') return true;
-  const re = /^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(\.([0-9][0-9]?)?)?$/m;
-  return re.test(val);
-};
-
-const isValidPercentage = (val) => {
-  if (val === '') return true;
-  const re = /^([0-9]{1,2})?(\.([0-9]{0,2})?)?$/m;
-  return re.test(val) && Math.floor(val) < 35;
-};
+import { isValidCurrency, isValidPercent } from '../helpers/validator';
 
 const App = () => {
   const [isCalcFormExpanded, setCalcExpanded] = useState(true);
@@ -73,7 +62,7 @@ const App = () => {
   }, [monthlyPayment]);
 
   useEffect(() => {
-    if (!isValidPercentage(annualInterestRate)) {
+    if (!isValidPercent(annualInterestRate)) {
       setTimeout(() => setAprErrorMsg('Please enter a valid percentage less than 35.'), 800);
     } else {
       setTimeout(() => setAprErrorMsg(''), 800);

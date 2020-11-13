@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { toCurrencyString } from '../helpers/math';
-import toYearMonthString from '../helpers/formatter';
+import {
+  toYearMonthString,
+  toCurrencyString,
+} from '../helpers/formatter';
 
 const LoanDetails = (props) => {
   const { loanDetails } = props;

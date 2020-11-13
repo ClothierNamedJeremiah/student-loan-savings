@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 
 import SavingsTableRow from './SavingsTableRow';
 
-import { toCurrencyString, toPercentString } from '../helpers/math';
-import toYearMonthString from '../helpers/formatter';
+import {
+  toYearMonthString,
+  toCurrencyString,
+  toPercentString,
+} from '../helpers/formatter';
 
 const TABLE_COLUMN_HEADERS = {
   additionalMonthlyPayment: [
