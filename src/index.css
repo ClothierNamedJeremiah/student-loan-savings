@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,700&display=swap');
+
+:root {
+ --color-dark-green: #0B4E04;
+ --color-medium-dark-green: #159108;
+ --color-light-green: #BDEDC4;
+ --color-dark-blue: #02203C;
+ --color-black: #000;
+ --color-white: #FFF;
+ --color-dark-grey: #69757A;
+ --color-light-grey: #F2F2F2;
+
+ --box-shadow-weak: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ --box-shadow-strong: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f6f9fc;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  line-height: 1.42;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  line-height: 1.2857em;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--color-grey);
+}
+
+strong {
+  font-weight: 700;
+}
+
+#description {
+  font-weight: 300;
+  font-style: italic;
+  margin: 4%
+}
+
+table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 500px;
+  width: 100%;
+  grid-template-columns: 1.25fr 2fr 2fr 2fr;
+}
+
+thead, tbody, tr {
+  display: contents;
+  text-align: center;
+}
+
+tr > th, tr > td {
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
+
+thead th:not(:first-child) {
+  border-left: 1px solid rgba(224, 224, 224, 1);
+}
+
+th {
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+tr:nth-child(odd) td {
+  background-color: var(--color-light-grey);
+}
+
+/* font-style */
+.fs-medium {
+  font-weight: 500;
+}
+
+.fs-light {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.no-margin {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.top-margin {
+  margin-top: 1rem;
+}
+
+.bot-margin {
+  margin-bottom: 1rem;
+}
+
+#wrapper {
+  margin: 5%;
+  display: grid;
+  place-items: center;
+}
+
+#title {
+  color: var(--color-dark-green);
+  letter-spacing: 0.04em;
+}
+
+#calc {
+  width: fit-content;
+  max-width: 250px;
+  background-color: #fff;
+  transition: height 0.2s;
+  will-change: height;
+  box-shadow: var(--box-shadow-weak);
+  border-radius: 4px;
+  border-left: 5px solid var(--color-dark-green);
+} #calc-switch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 16px;
+  height: 3em; /* Fixed Height because Material UI SVG scales wierd */
+} #calc-switch-text {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 18px;
+} #calc-form {
+  display: grid;
+  place-items: center;
+  padding: 8px 16px;
+  row-gap: 1em;
+  padding-bottom: 1em;
+}
+
+.tt-180 {
+  transform: rotate(-180deg);
+}
+
+.tt-none {
+  transition: transform 0.2s;
+}
+
+.expandable {
+  height: 0px;
+  overflow: hidden;
+  transition: height .6s cubic-bezier(.4,0,.2,1);
+  will-change: height;
+}
+
+.expanded {
+  padding: 8px 16px;
+}
+
+#savings {
+  width: 100%;
+  padding: 10px;
+  max-width: 750px;
+  overflow-x: auto;
+}
+
+#loan-details {
+  width: 275px;
+  padding: 24px 8px;  
+} @media (max-width: 350px) {
+  #loan-details {
+    width: 100%;
+  }
+}
+
+#table-wrapper {
+  overflow: auto;
+  height: 100%;
+  box-shadow: var(--box-shadow-strong);
+}
+
+
+@media (max-width: 575px) {
+  thead > tr > th:first-child {
+    left: 0;
+    top: 0;
+    z-index: 10001
+  }
+
+  thead th {
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 10000;
+  }
+
+  tbody > tr > th {
+    left: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 9999;
+  }
+}
+
+/* Mobile Friendly Table */
+@media (max-width: 450px) {
+  #wrapper {
+    margin: 2px;
+  }
+
+  #table-wrapper {
+    height: 675px;
+  }
+}
