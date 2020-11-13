@@ -1,9 +1,10 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import Calculator from './Calculator';
 import LoanDetails from './LoanDetails';
 import Savings from './Savings';
 
+import { useDelayedFormValidator } from '../helpers/hooks';
 import { calcLoanDetails, calcLoanSavings } from '../helpers/math';
 import { isValidCurrency, isValidPercent } from '../helpers/validator';
 
@@ -14,9 +15,17 @@ const App = () => {
   const [monthlyPayment, setMonthlyPayment] = useState('393.60');
   const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
 
+  /* FORM VALIDATION FOR CALCULATOR */
   const [balErrorMsg, setBalErrorMsg] = useState('');
   const [monthlyErrorMsg, setMonthlyErrorMsg] = useState('');
   const [aprErrorMsg, setAprErrorMsg] = useState('');
+  useDelayedFormValidator(isValidCurrency, currentBalance,
+    'Please enter a valid U.S amount.', setBalErrorMsg);
+  useDelayedFormValidator(isValidCurrency, monthlyPayment,
+    'Please enter a valid U.S amount.', setMonthlyErrorMsg);
+  useDelayedFormValidator(isValidPercent, annualInterestRate,
+    'Please enter a valid percentage less than 35.', setAprErrorMsg);
+  /* END */
 
   // const [currentBalance, setCurrentBalance] = useState('');
   // const [monthlyPayment, setMonthlyPayment] = useState('');
@@ -43,31 +52,7 @@ const App = () => {
       parseFloat(annualInterestRate) / 100,
       parseFloat(loanDetails.interestPaid),
     )
-  ), [loanDetails]);
-
-  useEffect(() => {
-    if (!isValidCurrency(currentBalance)) {
-      setTimeout(() => setBalErrorMsg('Please enter a valid U.S amount.'), 800);
-    } else {
-      setTimeout(() => setBalErrorMsg(''), 800);
-    }
-  }, [currentBalance]);
-
-  useEffect(() => {
-    if (!isValidCurrency(monthlyPayment)) {
-      setTimeout(() => setMonthlyErrorMsg('Please enter a valid U.S amount.'), 800);
-    } else {
-      setTimeout(() => setMonthlyErrorMsg(''), 800);
-    }
-  }, [monthlyPayment]);
-
-  useEffect(() => {
-    if (!isValidPercent(annualInterestRate)) {
-      setTimeout(() => setAprErrorMsg('Please enter a valid percentage less than 35.'), 800);
-    } else {
-      setTimeout(() => setAprErrorMsg(''), 800);
-    }
-  }, [annualInterestRate]);
+  ), [numOfSubmissions]);
 
   return (
     <div id="wrapper">
