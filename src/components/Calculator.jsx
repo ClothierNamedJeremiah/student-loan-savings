@@ -20,6 +20,7 @@ const Calculator = (props) => {
       />
       <CalcFormContainer
         isCalcFormExpanded={isCalcFormExpanded}
+        setCalcExpanded={setCalcExpanded}
         setLoanDetails={setLoanDetails}
         setLoanSavings={setLoanSavings}
       />

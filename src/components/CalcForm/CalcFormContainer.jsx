@@ -12,6 +12,7 @@ const CalcFormContainer = (props) => {
     setLoanDetails,
     setLoanSavings,
     isCalcFormExpanded,
+    setCalcExpanded,
   } = props;
 
   const [height, setHeight] = useState(0);
@@ -68,6 +69,8 @@ const CalcFormContainer = (props) => {
 
     setLoanDetails(loanDetails);
     setLoanSavings(loanSavings);
+
+    setCalcExpanded(false);
   };
 
   return (
@@ -92,6 +95,7 @@ CalcFormContainer.propTypes = {
   setLoanDetails: PropTypes.func.isRequired,
   setLoanSavings: PropTypes.func.isRequired,
   isCalcFormExpanded: PropTypes.bool.isRequired,
+  setCalcExpanded: PropTypes.func.isRequired,
 };
 
 export default CalcFormContainer;
