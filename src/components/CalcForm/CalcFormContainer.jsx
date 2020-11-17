@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { useDelayedFormValidator } from '../../helpers/hooks';
+import { useFormValidator } from '../../helpers/hooks';
 import { calcLoanDetails, calcLoanSavings, convertCurrencyStringToFloat } from '../../helpers/math';
 import { isValidCurrency, isValidPercent } from '../../helpers/validator';
 
@@ -14,6 +14,7 @@ const CalcFormContainer = (props) => {
     isCalcFormExpanded,
   } = props;
 
+  const [height, setHeight] = useState(0);
   const [currentBalance, setCurrentBalance] = useState('30000.00');
   const [monthlyPayment, setMonthlyPayment] = useState('393.60');
   const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
@@ -21,13 +22,24 @@ const CalcFormContainer = (props) => {
   // const [monthlyPayment, setMonthlyPayment] = useState('');
   // const [annualInterestRate, setAnnualInterestRate] = useState('');
 
-  const balErrorMsg = useDelayedFormValidator(isValidCurrency, currentBalance, 'Please enter a valid U.S amount.');
-  const monthlyErrorMsg = useDelayedFormValidator(isValidCurrency, monthlyPayment, 'Please enter a valid U.S amount.');
-  const aprErrorMsg = useDelayedFormValidator(isValidPercent, annualInterestRate, 'Please enter a valid percentage less than 35.');
+  const balErrorMsg = useFormValidator(isValidCurrency, currentBalance,
+    'Please enter a valid U.S amount.');
+  const monthlyErrorMsg = useFormValidator(isValidCurrency, monthlyPayment,
+    'Please enter a valid U.S amount.');
+  const aprErrorMsg = useFormValidator(isValidPercent, annualInterestRate,
+    'Please enter a valid percentage less than 35.');
 
-  const [height, setHeight] = useState(0);
-  const isAnyRequiredFieldEmpty = currentBalance === '' || annualInterestRate === '' || monthlyPayment === '';
-  const isAnyErrorMsgDisplayed = balErrorMsg !== '' || monthlyErrorMsg !== '' || aprErrorMsg !== '';
+  const isAnyRequiredFieldEmpty = (
+    currentBalance === ''
+    || annualInterestRate === ''
+    || monthlyPayment === ''
+  );
+
+  const isAnyErrorMsgDisplayed = (
+    balErrorMsg !== ''
+    || monthlyErrorMsg !== ''
+    || aprErrorMsg !== ''
+  );
 
   useEffect(() => {
     if (isCalcFormExpanded) {
