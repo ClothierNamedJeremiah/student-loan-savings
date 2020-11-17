@@ -35,6 +35,8 @@ const CalcForm = (props) => {
   } = props;
 
   const [height, setHeight] = useState(0);
+  const isAnyRequiredFieldEmpty = currentBalance === '' || annualInterestRate === '' || monthlyPayment === '';
+  const isAnyErrorMsgDisplayed = balErrorMsg !== '' || monthlyErrorMsg !== '' || aprErrorMsg !== '';
 
   useEffect(() => {
     if (isCalcFormExpanded) {
@@ -104,7 +106,7 @@ const CalcForm = (props) => {
           variant="contained"
           color="primary"
           size="large"
-          disabled={currentBalance === '' || annualInterestRate === '' || monthlyPayment === ''}
+          disabled={isAnyRequiredFieldEmpty || isAnyErrorMsgDisplayed}
           onClick={(e) => handleSubmit(e)}
         >
           Submit
@@ -116,7 +118,6 @@ const CalcForm = (props) => {
 };
 
 CalcForm.propTypes = {
-  height: PropTypes.number.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   currentBalance: PropTypes.string.isRequired,
   setCurrentBalance: PropTypes.func.isRequired,

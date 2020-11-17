@@ -5,7 +5,7 @@ import LoanDetails from './LoanDetails';
 import Savings from './Savings';
 
 import { useDelayedFormValidator } from '../helpers/hooks';
-import { calcLoanDetails, calcLoanSavings } from '../helpers/math';
+import { calcLoanDetails, calcLoanSavings, convertCurrencyStringToFloat } from '../helpers/math';
 import { isValidCurrency, isValidPercent } from '../helpers/validator';
 
 const App = () => {
@@ -14,6 +14,9 @@ const App = () => {
   const [currentBalance, setCurrentBalance] = useState('30000.00');
   const [monthlyPayment, setMonthlyPayment] = useState('393.60');
   const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
+  // const [currentBalance, setCurrentBalance] = useState('');
+  // const [monthlyPayment, setMonthlyPayment] = useState('');
+  // const [annualInterestRate, setAnnualInterestRate] = useState('');
 
   /* FORM VALIDATION FOR CALCULATOR */
   const [balErrorMsg, setBalErrorMsg] = useState('');
@@ -27,10 +30,6 @@ const App = () => {
     'Please enter a valid percentage less than 35.', setAprErrorMsg);
   /* END */
 
-  // const [currentBalance, setCurrentBalance] = useState('');
-  // const [monthlyPayment, setMonthlyPayment] = useState('');
-  // const [annualInterestRate, setAnnualInterestRate] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setNumOfSubmissions((curr) => curr + 1);
@@ -39,20 +38,20 @@ const App = () => {
 
   const loanDetails = useMemo(() => (
     calcLoanDetails(
-      parseFloat(currentBalance),
-      parseFloat(monthlyPayment),
-      parseFloat(annualInterestRate) / 100,
+      convertCurrencyStringToFloat(currentBalance),
+      convertCurrencyStringToFloat(monthlyPayment),
+      convertCurrencyStringToFloat(annualInterestRate) / 100,
     )
   ), [numOfSubmissions]);
 
   const savingsData = useMemo(() => (
     calcLoanSavings(
-      parseFloat(currentBalance),
-      parseFloat(monthlyPayment),
-      parseFloat(annualInterestRate) / 100,
-      parseFloat(loanDetails.interestPaid),
+      convertCurrencyStringToFloat(currentBalance),
+      convertCurrencyStringToFloat(monthlyPayment),
+      convertCurrencyStringToFloat(annualInterestRate) / 100,
+      convertCurrencyStringToFloat(loanDetails.interestPaid),
     )
-  ), [numOfSubmissions]);
+  ), [loanDetails]);
 
   return (
     <div id="wrapper">
