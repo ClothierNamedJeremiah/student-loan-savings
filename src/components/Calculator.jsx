@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CalcSwitch from './CalcSwitch';
-import CalcForm from './CalcForm';
+import CalcFormContainer from './CalcForm/CalcFormContainer';
 
 const Calculator = (props) => {
   const {
@@ -18,7 +18,7 @@ const Calculator = (props) => {
         isCalcFormExpanded={isCalcFormExpanded}
         setCalcExpanded={setCalcExpanded}
       />
-      <CalcForm
+      <CalcFormContainer
         isCalcFormExpanded={isCalcFormExpanded}
         setLoanDetails={setLoanDetails}
         setLoanSavings={setLoanSavings}
