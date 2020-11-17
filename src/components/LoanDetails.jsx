@@ -8,17 +8,17 @@ import {
 
 const LoanDetails = (props) => {
   const { loanDetails } = props;
-  const { months, interestPaid } = loanDetails;
+  const { monthsTillPayoffDate, totalInterestPaid } = loanDetails;
 
-  const years = Math.floor(months / 12);
+  const years = Math.floor(monthsTillPayoffDate / 12);
 
-  const str = toYearMonthString(months);
+  const str = toYearMonthString(monthsTillPayoffDate);
 
   let payoffDesc = '';
   if (years === 0) {
     payoffDesc = `${str} from now`;
   } else {
-    payoffDesc = `${str} (${months} months) from now`;
+    payoffDesc = `${str} (${monthsTillPayoffDate} months) from now`;
   }
 
   return (
@@ -28,15 +28,15 @@ const LoanDetails = (props) => {
       <h4 className="fs-medium">February, 2029</h4>
       <p className="no-margin fs-light">{payoffDesc}</p>
       <h3 className="top-margin">TOTAL INTEREST PAID</h3>
-      <p className="no-margin">{toCurrencyString(interestPaid)}</p>
+      <p className="no-margin">{toCurrencyString(totalInterestPaid)}</p>
     </div>
   );
 };
 
 LoanDetails.propTypes = {
   loanDetails: PropTypes.shape({
-    months: PropTypes.number.isRequired,
-    interestPaid: PropTypes.number.isRequired,
+    monthsTillPayoffDate: PropTypes.number.isRequired,
+    totalInterestPaid: PropTypes.number.isRequired,
   }).isRequired,
 };
 

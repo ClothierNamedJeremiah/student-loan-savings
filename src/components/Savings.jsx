@@ -35,8 +35,8 @@ const StyledTab = withStyles({
 })(Tab);
 
 const Savings = (props) => {
-  const { savingsData } = props;
-  const { additionalMonthlyPayment, lowerInterestRate } = savingsData;
+  const { loanSavings } = props;
+  const { additionalMonthlyPayment, lowerInterestRate } = loanSavings;
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -68,13 +68,13 @@ const Savings = (props) => {
       </Paper>
       <TabPanel value={value} index={0}>
         <SavingsTable
-          savingsData={additionalMonthlyPayment}
+          loanSavings={additionalMonthlyPayment}
           tableType="additionalMonthlyPayment"
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <SavingsTable
-          savingsData={lowerInterestRate}
+          loanSavings={lowerInterestRate}
           tableType="lowerInterestRate"
         />
       </TabPanel>
@@ -83,7 +83,7 @@ const Savings = (props) => {
 };
 
 Savings.propTypes = {
-  savingsData: PropTypes.shape({
+  loanSavings: PropTypes.shape({
     additionalMonthlyPayment: PropTypes.arrayOf(PropTypes.array).isRequired,
     lowerInterestRate: PropTypes.arrayOf(PropTypes.array).isRequired,
   }).isRequired,

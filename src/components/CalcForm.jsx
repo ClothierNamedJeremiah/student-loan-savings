@@ -10,6 +10,10 @@ import {
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
+import { useDelayedFormValidator } from '../helpers/hooks';
+import { calcLoanDetails, calcLoanSavings, convertCurrencyStringToFloat } from '../helpers/math';
+import { isValidCurrency, isValidPercent } from '../helpers/validator';
+
 const StyledButton = withStyles({
   containedPrimary: {
     'background-color': 'var(--color-dark-green)',
@@ -21,18 +25,30 @@ const StyledButton = withStyles({
 
 const CalcForm = (props) => {
   const {
+    setLoanDetails,
+    setLoanSavings,
     isCalcFormExpanded,
-    handleSubmit,
-    currentBalance,
-    setCurrentBalance,
-    annualInterestRate,
-    setAnnualInterestRate,
-    monthlyPayment,
-    setMonthlyPayment,
-    balErrorMsg,
-    monthlyErrorMsg,
-    aprErrorMsg,
   } = props;
+
+  const [currentBalance, setCurrentBalance] = useState('30000.00');
+  const [monthlyPayment, setMonthlyPayment] = useState('393.60');
+  const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
+  // const [currentBalance, setCurrentBalance] = useState('');
+  // const [monthlyPayment, setMonthlyPayment] = useState('');
+  // const [annualInterestRate, setAnnualInterestRate] = useState('');
+
+  /* FORM VALIDATION FOR CALCULATOR */
+  const [balErrorMsg, setBalErrorMsg] = useState('');
+  const [monthlyErrorMsg, setMonthlyErrorMsg] = useState('');
+  const [aprErrorMsg, setAprErrorMsg] = useState('');
+  useDelayedFormValidator(isValidCurrency, currentBalance,
+    'Please enter a valid U.S amount.', setBalErrorMsg);
+  useDelayedFormValidator(isValidCurrency, monthlyPayment,
+    'Please enter a valid U.S amount.', setMonthlyErrorMsg);
+  useDelayedFormValidator(isValidPercent, annualInterestRate,
+    'Please enter a valid percentage less than 35.', setAprErrorMsg);
+  /* END */
+
 
   const [height, setHeight] = useState(0);
   const isAnyRequiredFieldEmpty = currentBalance === '' || annualInterestRate === '' || monthlyPayment === '';
@@ -46,6 +62,27 @@ const CalcForm = (props) => {
       setHeight(0);
     }
   });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const loanDetails = calcLoanDetails(
+      convertCurrencyStringToFloat(currentBalance),
+      convertCurrencyStringToFloat(monthlyPayment),
+      convertCurrencyStringToFloat(annualInterestRate) / 100,
+    );
+
+    const loanSavings = calcLoanSavings(
+      convertCurrencyStringToFloat(currentBalance),
+      convertCurrencyStringToFloat(monthlyPayment),
+      convertCurrencyStringToFloat(annualInterestRate) / 100,
+      convertCurrencyStringToFloat(loanDetails.totalInterestPaid),
+    );
+
+    setLoanDetails(loanDetails);
+    setLoanSavings(loanSavings);
+  }
+
 
   return (
     <div
@@ -118,16 +155,9 @@ const CalcForm = (props) => {
 };
 
 CalcForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  currentBalance: PropTypes.string.isRequired,
-  setCurrentBalance: PropTypes.func.isRequired,
-  annualInterestRate: PropTypes.string.isRequired,
-  setAnnualInterestRate: PropTypes.func.isRequired,
-  monthlyPayment: PropTypes.string.isRequired,
-  setMonthlyPayment: PropTypes.func.isRequired,
-  balErrorMsg: PropTypes.string.isRequired,
-  monthlyErrorMsg: PropTypes.string.isRequired,
-  aprErrorMsg: PropTypes.string.isRequired,
+  setLoanDetails: PropTypes.func.isRequired,
+  setLoanSavings: PropTypes.func.isRequired,
+  isCalcFormExpanded: PropTypes.bool.isRequired,
 };
 
 export default CalcForm;

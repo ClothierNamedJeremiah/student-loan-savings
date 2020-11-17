@@ -17,7 +17,7 @@ const TABLE_HEADERS = [
 ];
 
 const SavingsTable = (props) => {
-  const { savingsData, tableType } = props;
+  const { loanSavings, tableType } = props;
   const columZeroFormatter = tableType === 'additionalMonthlyPayment' ? toCurrencyString : toPercentString;
   return (
     <div id="table-wrapper">
@@ -30,7 +30,7 @@ const SavingsTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {savingsData.map((row, i) => (
+          {loanSavings.map((row, i) => (
             <SavingsTableRow
               // eslint-disable-next-line react/no-array-index-key
               key={i}
@@ -49,7 +49,7 @@ const SavingsTable = (props) => {
 };
 
 SavingsTable.propTypes = {
-  savingsData: PropTypes.arrayOf(PropTypes.array).isRequired,
+  loanSavings: PropTypes.arrayOf(PropTypes.array).isRequired,
   tableType: PropTypes.oneOf([
     'additionalMonthlyPayment',
     'lowerInterestRate',
