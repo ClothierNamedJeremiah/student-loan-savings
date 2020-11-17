@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   FormControl,
@@ -19,33 +19,21 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-// TODO: submissions with commas
-
 const CalcForm = (props) => {
   const {
-    isCalcFormExpanded,
     handleSubmit,
+    height,
     currentBalance,
     setCurrentBalance,
-    annualInterestRate,
-    setAnnualInterestRate,
     monthlyPayment,
     setMonthlyPayment,
+    annualInterestRate,
+    setAnnualInterestRate,
     balErrorMsg,
     monthlyErrorMsg,
     aprErrorMsg,
+    isDisabled,
   } = props;
-
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (isCalcFormExpanded) {
-      const formHeight = document.getElementsByTagName('form')[0].clientHeight;
-      setHeight(formHeight);
-    } else {
-      setHeight(0);
-    }
-  });
 
   return (
     <div
@@ -106,7 +94,7 @@ const CalcForm = (props) => {
           variant="contained"
           color="primary"
           size="large"
-          disabled={currentBalance === '' || annualInterestRate === '' || monthlyPayment === ''}
+          disabled={isDisabled}
           onClick={(e) => handleSubmit(e)}
         >
           Submit
@@ -118,17 +106,18 @@ const CalcForm = (props) => {
 };
 
 CalcForm.propTypes = {
-  height: PropTypes.number.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  height: PropTypes.number.isRequired,
   currentBalance: PropTypes.string.isRequired,
   setCurrentBalance: PropTypes.func.isRequired,
-  annualInterestRate: PropTypes.string.isRequired,
-  setAnnualInterestRate: PropTypes.func.isRequired,
   monthlyPayment: PropTypes.string.isRequired,
   setMonthlyPayment: PropTypes.func.isRequired,
+  annualInterestRate: PropTypes.string.isRequired,
+  setAnnualInterestRate: PropTypes.func.isRequired,
   balErrorMsg: PropTypes.string.isRequired,
   monthlyErrorMsg: PropTypes.string.isRequired,
   aprErrorMsg: PropTypes.string.isRequired,
+  isDisabled: PropTypes.bool.isRequired,
 };
 
 export default CalcForm;

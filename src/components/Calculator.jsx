@@ -1,24 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CalcSwitch from './CalcSwitch';
-import CalcForm from './CalcForm';
+import CalcFormContainer from './CalcForm/CalcFormContainer';
 
 const Calculator = (props) => {
   const {
-    handleSubmit,
-    isCalcFormExpanded,
-    setCalcExpanded,
-    currentBalance,
-    setCurrentBalance,
-    annualInterestRate,
-    setAnnualInterestRate,
-    monthlyPayment,
-    setMonthlyPayment,
-    balErrorMsg,
-    monthlyErrorMsg,
-    aprErrorMsg,
+    setLoanDetails,
+    setLoanSavings,
   } = props;
+
+  const [isCalcFormExpanded, setCalcExpanded] = useState(true);
 
   return (
     <div id="calc">
@@ -26,36 +18,18 @@ const Calculator = (props) => {
         isCalcFormExpanded={isCalcFormExpanded}
         setCalcExpanded={setCalcExpanded}
       />
-      <CalcForm
+      <CalcFormContainer
         isCalcFormExpanded={isCalcFormExpanded}
-        handleSubmit={handleSubmit}
-        currentBalance={currentBalance}
-        setCurrentBalance={setCurrentBalance}
-        annualInterestRate={annualInterestRate}
-        setAnnualInterestRate={setAnnualInterestRate}
-        monthlyPayment={monthlyPayment}
-        setMonthlyPayment={setMonthlyPayment}
-        balErrorMsg={balErrorMsg}
-        monthlyErrorMsg={monthlyErrorMsg}
-        aprErrorMsg={aprErrorMsg}
+        setLoanDetails={setLoanDetails}
+        setLoanSavings={setLoanSavings}
       />
     </div>
   );
 };
 
 Calculator.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  isCalcFormExpanded: PropTypes.bool.isRequired,
-  setCalcExpanded: PropTypes.func.isRequired,
-  currentBalance: PropTypes.string.isRequired,
-  setCurrentBalance: PropTypes.func.isRequired,
-  annualInterestRate: PropTypes.string.isRequired,
-  setAnnualInterestRate: PropTypes.func.isRequired,
-  monthlyPayment: PropTypes.string.isRequired,
-  setMonthlyPayment: PropTypes.func.isRequired,
-  balErrorMsg: PropTypes.string.isRequired,
-  monthlyErrorMsg: PropTypes.string.isRequired,
-  aprErrorMsg: PropTypes.string.isRequired,
+  setLoanDetails: PropTypes.func.isRequired,
+  setLoanSavings: PropTypes.func.isRequired,
 };
 
 export default Calculator;

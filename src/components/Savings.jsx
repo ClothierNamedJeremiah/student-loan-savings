@@ -7,6 +7,7 @@ import {
   Tab,
 } from '@material-ui/core';
 
+import TabPanel from './TabPanel';
 import SavingsTable from './SavingsTable';
 
 const StyledTabs = withStyles({
@@ -33,46 +34,24 @@ const StyledTab = withStyles({
   selected: {},
 })(Tab);
 
-function TabPanel(props) {
-  const {
-    children,
-    value,
-    index,
-    ...other
-  } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        children
-      )}
-    </div>
-  );
-}
-
 const Savings = (props) => {
-  const { savingsData } = props;
-  const { additionalMonthlyPayment, lowerInterestRate } = savingsData;
+  const { loanSavings } = props;
+  const { additionalMonthlyPayment, lowerInterestRate } = loanSavings;
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  // TODO: Wrap Table Labels on Small ViewPort
-  // TODO: as the table gets smaller we can reduce Padding
   return (
     <div id="savings">
       <h2 className="bot-margin" id="title">Loan Savings</h2>
       <p>
-        Toggle between <strong>additional monthly payment</strong> and <strong>lower interest rate</strong> to see how much you
-        could be saving using one of the two methods.
+        Toggle between
+        <strong> additional monthly payment </strong>
+        and
+        <strong> lower interest rate </strong>
+        to see how much you could be saving using one of the two methods.
       </p>
       <Paper square>
         <StyledTabs
@@ -89,14 +68,14 @@ const Savings = (props) => {
       </Paper>
       <TabPanel value={value} index={0}>
         <SavingsTable
-          savingsData={additionalMonthlyPayment}
-          index="additionalMonthlyPayment"
+          loanSavings={additionalMonthlyPayment}
+          tableType="additionalMonthlyPayment"
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <SavingsTable
-          savingsData={lowerInterestRate}
-          index="lowerInterestRate"
+          loanSavings={lowerInterestRate}
+          tableType="lowerInterestRate"
         />
       </TabPanel>
     </div>
@@ -104,7 +83,10 @@ const Savings = (props) => {
 };
 
 Savings.propTypes = {
-  savingsData: PropTypes.arrayOf(PropTypes.array).isRequired,
+  loanSavings: PropTypes.shape({
+    additionalMonthlyPayment: PropTypes.arrayOf(PropTypes.array).isRequired,
+    lowerInterestRate: PropTypes.arrayOf(PropTypes.array).isRequired,
+  }).isRequired,
 };
 
 export default memo(Savings);
