@@ -98,3 +98,12 @@ export const calcLoanSavings = (
     lowerInterestRate,
   };
 };
+
+export const convertCurrencyStringToFloat = (s) => {
+  if (typeof s === 'number') return s;
+  if (typeof s !== 'string') throw new Error('s is not of type string');
+
+  const re = /,/g;
+  const sWithoutCommas = s.replaceAll(re, '');
+  return parseFloat(sWithoutCommas);
+};
