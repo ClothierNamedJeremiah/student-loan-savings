@@ -13,13 +13,13 @@ const CalcSwitch = (props) => {
   const { isCalcFormExpanded, setCalcExpanded } = props;
 
   return (
-    <div id="calc-switch" onClick={() => setCalcExpanded(!isCalcFormExpanded)}>
+    <button type="button" id="calc-switch" onClick={() => setCalcExpanded(!isCalcFormExpanded)}>
       <p id="calc-switch-text">Calculator</p>
       <StyledArrowUp
         className={`${isCalcFormExpanded ? '' : 'tt-180'}`}
         style={{ fontSize: '60' }}
       />
-    </div>
+    </button>
   );
 };
 

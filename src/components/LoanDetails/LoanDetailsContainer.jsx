@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { addMonthsToNow } from '../../helpers/math';
 import {
   toYearMonthString,
   toCurrencyString,
@@ -25,6 +26,7 @@ const LoanDetailsContainer = (props) => {
 
   return (
     <LoanDetails
+      payoffDateEstimate={addMonthsToNow(monthsTillPayoffDate)}
       timeUntilPayoffStr={timeUntilPayoffStr}
       totalInterestPaidStr={toCurrencyString(totalInterestPaid)}
     />
