@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import Calculator from './Calculator';
-import LoanDetails from './LoanDetails';
+import LoanDetailsContainer from './LoanDetails/LoanDetailsContainer';
 import Savings from './Savings';
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
       {hasLoanInformationBeenSubmitted
         && (
           <>
-            <LoanDetails loanDetails={loanDetails} />
+            <LoanDetailsContainer loanDetails={loanDetails} />
             <Savings loanSavings={loanSavings} />
           </>
         )}
