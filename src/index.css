@@ -85,7 +85,6 @@ thead th:not(:first-child) {
 }
 
 th {
-  place-items: center;
   font-weight: 500;
   text-transform: uppercase;
   background-color: var(--color-black);
@@ -113,13 +112,9 @@ tr:nth-child(odd) td {
   margin-block-end: 0;
   margin-inline-start: 0;
   margin-inline-end: 0;
-}
-
-.top-margin {
+} .top-margin {
   margin-top: 1rem;
-}
-
-.bot-margin {
+} .bot-margin {
   margin-bottom: 1rem;
 }
 
@@ -164,19 +159,17 @@ tr:nth-child(odd) td {
   padding-bottom: 1em;
 }
 
-.tt-180 {
-  transform: rotate(-180deg);
-}
-
-.tt-none {
-  transition: transform 0.2s;
-}
-
 .expandable {
   height: 0px;
   overflow: hidden;
   transition: height .6s cubic-bezier(.4,0,.2,1);
   will-change: height;
+}
+
+.tt-180 {
+  transform: rotate(-180deg);
+} .tt-none {
+  transition: transform 0.2s;
 }
 
 #savings {
@@ -192,8 +185,13 @@ tr:nth-child(odd) td {
 }
 
 @media (max-width: 725px) {
-  table, thead, tbody, th, td {
+  table, thead, tbody {
     display: block;
+  }
+
+  th, td {
+    display: grid;
+    place-items: center;
   }
 
   table {
@@ -231,7 +229,6 @@ tr:nth-child(odd) td {
   }
 }
 
-
 @media (max-width: 500px) {
   table td, table th {
     padding: 4px;
@@ -242,7 +239,6 @@ tr:nth-child(odd) td {
   }
 }
 
-/* WORKING RESPONSIVE CSS */
 @media (max-width: 350px) {
   #loan-details {
     width: 100%;
