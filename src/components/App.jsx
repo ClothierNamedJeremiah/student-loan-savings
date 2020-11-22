@@ -15,13 +15,13 @@ const App = () => {
   return (
     <div id="wrapper">
       <div style={{ maxWidth: '400px' }}>
-        <h1 id="title">Student Loan Savings</h1>
+        <h1 id="title" style={{ textAlign: 'center' }}>Student Loan Savings</h1>
         <p id="description" className="no-margin">
           <strong>Increasing monthly payments </strong>
           and
           <strong> lowering the interest rate </strong>
           on student loans can drastrically reduce the total interest paid over the lifetime
-          of your loan. Use the calculator below and see how much you could be saving.
+          of your loan. Fill out the form below and see how much you could be saving.
         </p>
       </div>
       <Calculator

@@ -9,11 +9,11 @@ export const calcLoanDetails = (currentBalance, monthlyPayment, annualInterestRa
   let totalInterestPaid = 0;
   let remainingBalance = currentBalance;
   while (remainingBalance > 0 && monthsTillPayoffDate <= 360) {
+    const monthlyInterest = remainingBalance * (annualInterestRate / 12);
     // Deduct monthly payment
     remainingBalance -= monthlyPayment;
 
     // Compound Monthly Interest
-    const monthlyInterest = remainingBalance * (annualInterestRate / 12);
     remainingBalance += monthlyInterest;
 
     totalInterestPaid += monthlyInterest;

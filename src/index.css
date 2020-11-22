@@ -37,6 +37,10 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
+button {
+  all: unset; /* remove default styles */
+}
+
 h2 {
   color: var(--color-grey);
 }
@@ -52,15 +56,14 @@ strong {
 }
 
 table {
-  display: grid;
   border-collapse: collapse;
-  min-width: 500px;
+  min-width: 300px;
   width: 100%;
   grid-template-columns: 1.25fr 2fr 2fr 2fr;
+  box-shadow: var(--box-shadow-strong);
 }
 
 thead, tbody, tr {
-  display: contents;
   text-align: center;
 }
 
@@ -74,13 +77,14 @@ thead th:not(:first-child) {
 }
 
 th {
-  display: grid;
   place-items: center;
   font-weight: 500;
+  text-transform: uppercase;
   background-color: var(--color-black);
   color: var(--color-white);
 }
 
+/* Zebra Striping */
 tr:nth-child(odd) td {
   background-color: var(--color-light-grey);
 }
@@ -132,6 +136,8 @@ tr:nth-child(odd) td {
   border-radius: 4px;
   border-left: 5px solid var(--color-dark-green);
 } #calc-switch {
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -165,10 +171,6 @@ tr:nth-child(odd) td {
   will-change: height;
 }
 
-.expanded {
-  padding: 8px 16px;
-}
-
 #savings {
   width: 100%;
   padding: 10px;
@@ -179,48 +181,63 @@ tr:nth-child(odd) td {
 #loan-details {
   width: 275px;
   padding: 24px 8px;  
-} @media (max-width: 350px) {
-  #loan-details {
+}
+
+/* TESTING RESPONSIVE CSS */
+@media (max-width: 725px) {
+  table, thead, tbody, th, td {
+    display: block;
+  }
+
+  table {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+  }
+
+  thead {
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 2;
+  }
+
+  tbody, thead {
+    width: calc(4/3 * 100%);
+  }
+
+  tr {
+    display: flex;
     width: 100%;
   }
-}
 
-#table-wrapper {
-  overflow: auto;
-  height: 100%;
-  box-shadow: var(--box-shadow-strong);
-}
-
-
-@media (max-width: 575px) {
-  thead > tr > th:first-child {
-    left: 0;
-    top: 0;
-    z-index: 10001
+  td, th {
+    width: 50%;
+    scroll-snap-align: start;
   }
 
-  thead th {
-    top: 0;
+  tr > th:first-child, tr > td:first-child {
     position: sticky;
-    position: -webkit-sticky;
-    z-index: 10000;
-  }
-
-  tbody > tr > th {
     left: 0;
-    position: sticky;
-    position: -webkit-sticky;
-    z-index: 9999;
+    z-index: 1;
   }
 }
 
-/* Mobile Friendly Table */
-@media (max-width: 450px) {
-  #wrapper {
-    margin: 2px;
+
+@media (max-width: 500px) {
+  /* Convert the table to only display 2 columns */
+  tbody, thead {
+    width: calc(4/2 * 100%);
   }
 
-  #table-wrapper {
-    height: 675px;
+  #wrapper { 
+    margin: 10px;
+  }
+}
+
+/* WORKING RESPONSIVE CSS */
+@media (max-width: 350px) {
+  #loan-details {
+    width: 100%;
   }
 }

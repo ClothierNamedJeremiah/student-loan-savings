@@ -1,38 +1,31 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
-import {
-  withStyles,
-  Paper,
-  Tabs,
-  Tab,
-} from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
-import TabPanel from './TabPanel';
 import SavingsTable from './SavingsTable';
 
-const StyledTabs = withStyles({
-  indicator: {
-    backgroundColor: 'var(--color-dark-green)',
-  },
-})(Tabs);
-
-const StyledTab = withStyles({
+const StyledButton = withStyles({
   root: {
-    color: 'var(--color-dark-green)',
+    'text-align': 'center',
+    'flex-grow': 1,
+  },
+  containedPrimary: {
+    'background-color': '#1976d2',
+    'border-radius': '4px 4px 0 0',
     '&:hover': {
-      color: 'var(--color-medium-dark-green)',
-      opacity: 1,
-    },
-    '&$selected': {
-      color: 'var(--color-medium-dark-green)',
-      fontWeight: 600,
-    },
-    '&:focus': {
-      color: 'var(--color-medium-dark-green)',
+      'background-color': '#115293',
     },
   },
-  selected: {},
-})(Tab);
+  outlinedPrimary: {
+    color: '#1976d2',
+    'border-radius': '4px 4px 0 0',
+    '&:hover': {
+      border: '1px solid #1976d2',
+      'background-color': 'rgba(25, 118, 210, 0.04)',
+    },
+  },
+})(Button);
 
 const Savings = (props) => {
   const { loanSavings } = props;
@@ -53,31 +46,37 @@ const Savings = (props) => {
         <strong> lower interest rate </strong>
         to see how much you could be saving using one of the two methods.
       </p>
-      <Paper square>
-        <StyledTabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          aria-label="disabled tabs example"
-          centered
+      <div style={{ display: 'flex', width: '100%', minWidth: 300}}>
+        <StyledButton
+          variant={value === 0 ? 'contained' : 'outlined'}
+          color="primary"
+          onClick={(e) => handleChange(e, 0)}
         >
-          <StyledTab label="Additional Monthly Payment" />
-          <StyledTab label="Lower Interest Rate" />
-        </StyledTabs>
-      </Paper>
-      <TabPanel value={value} index={0}>
-        <SavingsTable
-          loanSavings={additionalMonthlyPayment}
-          tableType="additionalMonthlyPayment"
-        />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <SavingsTable
-          loanSavings={lowerInterestRate}
-          tableType="lowerInterestRate"
-        />
-      </TabPanel>
+          Additional Monthly Payment
+        </StyledButton>
+        <StyledButton
+          variant={value === 1 ? 'contained' : 'outlined'}
+          color="primary"
+          onClick={(e) => handleChange(e, 1)}
+        >
+          Lower Interest Rate
+        </StyledButton>
+      </div>
+
+      {value === 0
+        ? (
+          <SavingsTable
+            loanSavings={additionalMonthlyPayment}
+            tableType="additionalMonthlyPayment"
+          />
+        )
+        : (
+          <SavingsTable
+            loanSavings={lowerInterestRate}
+            tableType="lowerInterestRate"
+          />
+        )
+      }
     </div>
   );
 };
