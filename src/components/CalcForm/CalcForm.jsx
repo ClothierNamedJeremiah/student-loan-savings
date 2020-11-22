@@ -52,6 +52,7 @@ const CalcForm = (props) => {
             label="Current balance *"
             placeholder="0.00"
             autoComplete="off"
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
           <FormHelperText className="error-text" variant="outlined" dense="normal">
             {balErrorMsg}
@@ -68,6 +69,7 @@ const CalcForm = (props) => {
             label="Monthly payment *"
             placeholder="0.00"
             autoComplete="off"
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
           <FormHelperText className="error-text" variant="outlined" dense="normal">
             {monthlyErrorMsg}
@@ -84,6 +86,7 @@ const CalcForm = (props) => {
             label="Annual interest rate *"
             placeholder="0.00"
             autoComplete="off"
+            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
           <FormHelperText className="error-text" variant="outlined" dense="normal">
             {aprErrorMsg}
