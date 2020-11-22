@@ -41,6 +41,14 @@ button {
   all: unset; /* remove default styles */
 }
 
+/*
+  Prevents background color from appearing when the form
+  button is clicked (expands and shrinks).
+*/
+input, textarea, button, select, a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 h2 {
   color: var(--color-grey);
 }
@@ -180,10 +188,9 @@ tr:nth-child(odd) td {
 
 #loan-details {
   width: 275px;
-  padding: 24px 8px;  
+  padding: 24px 16px;  
 }
 
-/* TESTING RESPONSIVE CSS */
 @media (max-width: 725px) {
   table, thead, tbody, th, td {
     display: block;
@@ -192,7 +199,7 @@ tr:nth-child(odd) td {
   table {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    overscroll-behavior: contain;
+    overscroll-behavior-x: contain;
   }
 
   thead {
@@ -202,6 +209,7 @@ tr:nth-child(odd) td {
     z-index: 2;
   }
 
+  /* Convert the table to only display 3 columns */
   tbody, thead {
     width: calc(4/3 * 100%);
   }
@@ -225,9 +233,8 @@ tr:nth-child(odd) td {
 
 
 @media (max-width: 500px) {
-  /* Convert the table to only display 2 columns */
-  tbody, thead {
-    width: calc(4/2 * 100%);
+  table td, table th {
+    padding: 4px;
   }
 
   #wrapper { 
