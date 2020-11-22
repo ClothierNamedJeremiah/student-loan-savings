@@ -8,7 +8,7 @@ import SavingsTable from './SavingsTable';
 const StyledButton = withStyles({
   root: {
     'text-align': 'center',
-    'flex-grow': 1,
+    flex: 1,
   },
   containedPrimary: {
     'background-color': '#1976d2',

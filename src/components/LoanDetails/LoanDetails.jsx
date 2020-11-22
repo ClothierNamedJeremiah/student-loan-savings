@@ -6,7 +6,6 @@ const LoanDetails = (props) => {
 
   return (
     <div id="loan-details">
-      <h2 id="title" className="bot-margin">Loan Summary</h2>
       <h3 className="no-margin">PAYOFF DATE</h3>
       <h4 className="fs-medium">{payoffDateEstimate}</h4>
       <p className="no-margin fs-light">{timeUntilPayoffStr}</p>

@@ -21,9 +21,13 @@ const App = () => {
           and
           <strong> lowering the interest rate </strong>
           on student loans can drastrically reduce the total interest paid over the lifetime
-          of your loan. Fill out the form below and see how much you could be saving.
+          of your loan.
+        </p>
+        <p id="description" className="no-margin">
+          Fill out the form below and see how much you could be saving.
         </p>
       </div>
+      <h2 id="title" className="bot-margin" style={{ textAlign: 'center' }}>Loan Details</h2>
       <Calculator
         setLoanDetails={setLoanDetails}
         setLoanSavings={setLoanSavings}

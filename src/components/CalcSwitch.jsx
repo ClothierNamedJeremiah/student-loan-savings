@@ -14,7 +14,7 @@ const CalcSwitch = (props) => {
 
   return (
     <button type="button" id="calc-switch" onClick={() => setCalcExpanded(!isCalcFormExpanded)}>
-      <p id="calc-switch-text">Loan Information</p>
+      <p id="calc-switch-text">Student Loan</p>
       <StyledArrowUp
         className={`${isCalcFormExpanded ? '' : 'tt-180'}`}
         style={{ fontSize: '60' }}
