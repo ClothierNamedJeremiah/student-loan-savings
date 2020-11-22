@@ -54,6 +54,13 @@ const CalcFormContainer = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    /*
+      Blur the input field after form submission.
+      This will hide the keyboard on mobile after a user
+      has submitted the form.
+    */
+    document.activeElement.blur();
+
     const loanDetails = calcLoanDetails(
       convertCurrencyStringToFloat(currentBalance),
       convertCurrencyStringToFloat(monthlyPayment),
