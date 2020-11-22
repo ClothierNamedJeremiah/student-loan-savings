@@ -8,13 +8,13 @@ export const calcLoanDetails = (currentBalance, monthlyPayment, annualInterestRa
   let monthsTillPayoffDate = 0;
   let totalInterestPaid = 0;
   let remainingBalance = currentBalance;
-  const monthlyInterest = currentBalance * (annualInterestRate / 12);
   while (remainingBalance > 0 && monthsTillPayoffDate <= 360) {
-    // 1) Compound Monthly Interest
-    remainingBalance += monthlyInterest;
-
-    // 2) Deduct monthly payment
+    const monthlyInterest = remainingBalance * (annualInterestRate / 12);
+    // Deduct monthly payment
     remainingBalance -= monthlyPayment;
+
+    // Compound Monthly Interest
+    remainingBalance += monthlyInterest;
 
     totalInterestPaid += monthlyInterest;
     monthsTillPayoffDate += 1;
@@ -106,4 +106,19 @@ export const convertCurrencyStringToFloat = (s) => {
   const re = /,/g;
   const sWithoutCommas = s.replaceAll(re, '');
   return parseFloat(sWithoutCommas);
+};
+
+export const addMonthsToNow = (months) => {
+  const now = new Date();
+  now.setMonth(now.getMonth() + months);
+  if (now.getDate() !== now) {
+    now.setDate(0);
+  }
+
+  const options = {
+    month: 'long',
+    year: 'numeric',
+  };
+
+  return now.toLocaleString('default', options);
 };

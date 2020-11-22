@@ -1,7 +1,4 @@
 ## Required
-- Responsive Savings Table
-  - Mobile Friendly
-  - Slidable in small viewport (can reduce padding)
 - Responsive Savings Graph
 - Update CSS (make responsive for same Media Size)
 
