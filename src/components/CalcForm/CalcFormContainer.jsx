@@ -16,12 +16,12 @@ const CalcFormContainer = (props) => {
   } = props;
 
   const [height, setHeight] = useState(0);
-  const [currentBalance, setCurrentBalance] = useState('30000.00');
-  const [monthlyPayment, setMonthlyPayment] = useState('393.60');
-  const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
-  // const [currentBalance, setCurrentBalance] = useState('');
-  // const [monthlyPayment, setMonthlyPayment] = useState('');
-  // const [annualInterestRate, setAnnualInterestRate] = useState('');
+  // const [currentBalance, setCurrentBalance] = useState('30000.00');
+  // const [monthlyPayment, setMonthlyPayment] = useState('393.60');
+  // const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
+  const [currentBalance, setCurrentBalance] = useState('');
+  const [monthlyPayment, setMonthlyPayment] = useState('');
+  const [annualInterestRate, setAnnualInterestRate] = useState('');
 
   const balErrorMsg = useFormValidator(isValidCurrency, currentBalance,
     'Please enter a valid U.S amount.');

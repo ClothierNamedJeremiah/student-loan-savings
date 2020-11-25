@@ -45,7 +45,7 @@ const App = () => {
         <p id="description" className="no-margin">
           <strong>Increasing monthly payments </strong>
           and
-          <strong> lowering the interest rate </strong>
+          <strong> decreasing the interest rate </strong>
           on student loans can drastrically reduce the total interest paid over the lifetime
           of your loan.
         </p>

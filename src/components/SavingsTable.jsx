@@ -16,7 +16,8 @@ const SavingsTable = (props) => {
   const [isLeftArrowVisible, setIsLeftArrowVisible] = useState(false);
   const [isRightArrowVisible, setIsRightArrowVisible] = useState(true);
 
-  const columZeroFormatter = tableType === 'additionalMonthlyPayment' ? toCurrencyString : toPercentString;
+  const columZeroFormatter = tableType === 'higherMonthlyPayment' ? toCurrencyString : toPercentString;
+  const columnZeroSign = tableType === 'higherMonthlyPayment' ? '+' : '-';
 
   // 0: scroll to left || 1: scroll to right
   const handleClick = (scroll) => {
@@ -43,7 +44,7 @@ const SavingsTable = (props) => {
     });
 
     window.addEventListener('resize', (event) => {
-      if (window.innerWidth <= 750) {
+      if (window.innerWidth <= 725) {
         setIsRightArrowVisible(true);
       } else {
         setIsRightArrowVisible(false);
@@ -83,7 +84,7 @@ const SavingsTable = (props) => {
             // eslint-disable-next-line react/no-array-index-key
             key={i}
             data={[
-              columZeroFormatter(row[0]),
+              `${columnZeroSign} ${columZeroFormatter(row[0])}`,
               toYearMonthString(row[1]),
               toYearMonthString(row[2]),
               toCurrencyString(row[3], 2),
@@ -99,7 +100,7 @@ const SavingsTable = (props) => {
 SavingsTable.propTypes = {
   loanSavings: PropTypes.arrayOf(PropTypes.array).isRequired,
   tableType: PropTypes.oneOf([
-    'additionalMonthlyPayment',
+    'higherMonthlyPayment',
     'lowerInterestRate',
   ]).isRequired,
 };

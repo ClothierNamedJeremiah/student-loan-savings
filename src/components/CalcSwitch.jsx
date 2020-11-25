@@ -17,7 +17,7 @@ const CalcSwitch = (props) => {
       <p id="calc-switch-text">Student Loan</p>
       <StyledArrowUp
         className={`${isCalcFormExpanded ? '' : 'tt-180'}`}
-        style={{ fontSize: '60' }}
+        style={{ fontSize: '60', position: 'absolute' }}
       />
     </button>
   );

@@ -27,10 +27,10 @@ export const toYearMonthString = (months) => {
 
 export const toCurrencyString = (num, decimalPlaces = 0) => {
   const re = /(\d)(?=(\d{3})+(?!\d))/g;
-  return `$ ${num.toFixed(decimalPlaces).replace(re, '$1,')}`;
+  return `$${num.toFixed(decimalPlaces).replace(re, '$1,')}`;
 };
 
 export const toPercentString = (num) => {
   const re = /(\d)(?=(\d{3})+(?!\d))/g;
-  return `${num.toFixed(2).replace(re, '$1,')} %`;
+  return `${num.toFixed(2).replace(re, '$1,')}%`;
 };

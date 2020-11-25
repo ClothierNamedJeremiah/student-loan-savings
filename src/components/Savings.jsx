@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import SavingsTable from './SavingsTable';
 
-const TOOLTIP_ADDITIONAL_MONTHLY_PAYMENT = 'See how much you\'d save by increasing your monthly payment';
+const TOOLTIP_HIGHER_MONTHLY_PAYMENT = 'See how much you\'d save by increasing your monthly payment';
 const TOOLTIP_LOWER_INTEREST_RATE = 'See how much you\'d save by decreasing your interest rate';
 
 const StyledButton = withStyles({
@@ -32,7 +32,7 @@ const StyledButton = withStyles({
 
 const Savings = (props) => {
   const { loanSavings } = props;
-  const { additionalMonthlyPayment, lowerInterestRate } = loanSavings;
+  const { higherMonthlyPayment, lowerInterestRate } = loanSavings;
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -44,24 +44,25 @@ const Savings = (props) => {
       <h2 className="bot-margin" id="title">Loan Savings</h2>
       <p>
         Toggle between
-        <strong> additional monthly payment </strong>
+        <strong> increasing monthly payment </strong>
         and
-        <strong> lower interest rate </strong>
+        <strong> decreasing interest rate </strong>
         to see how much you could be saving using one of the two methods.
       </p>
       <p>
         <em>
-          Note: the data displayed below assumes interest compounds monthly.
+          Note: the data displayed in the table below assumes interest compounds
+          monthly and the interest rate is fixed.
         </em>
       </p>
       <div style={{ display: 'flex', width: '100%', minWidth: 300 }}>
-        <Tooltip title={TOOLTIP_ADDITIONAL_MONTHLY_PAYMENT} placement="top">
+        <Tooltip title={TOOLTIP_HIGHER_MONTHLY_PAYMENT} placement="top">
           <StyledButton
             variant={value === 0 ? 'contained' : 'outlined'}
             color="primary"
             onClick={(e) => handleChange(e, 0)}
           >
-            Additional Monthly Payment
+            Increasing Monthly Payment
           </StyledButton>
         </Tooltip>
         <Tooltip title={TOOLTIP_LOWER_INTEREST_RATE} placement="top">
@@ -70,7 +71,7 @@ const Savings = (props) => {
             color="primary"
             onClick={(e) => handleChange(e, 1)}
           >
-            Lower Interest Rate
+            Decreasing Interest Rate
           </StyledButton>
         </Tooltip>
       </div>
@@ -78,8 +79,8 @@ const Savings = (props) => {
       {value === 0
         ? (
           <SavingsTable
-            loanSavings={additionalMonthlyPayment}
-            tableType="additionalMonthlyPayment"
+            loanSavings={higherMonthlyPayment}
+            tableType="higherMonthlyPayment"
           />
         )
         : (
@@ -95,7 +96,7 @@ const Savings = (props) => {
 
 Savings.propTypes = {
   loanSavings: PropTypes.shape({
-    additionalMonthlyPayment: PropTypes.arrayOf(PropTypes.array).isRequired,
+    higherMonthlyPayment: PropTypes.arrayOf(PropTypes.array).isRequired,
     lowerInterestRate: PropTypes.arrayOf(PropTypes.array).isRequired,
   }).isRequired,
 };

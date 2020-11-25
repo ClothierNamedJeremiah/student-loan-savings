@@ -1,5 +1,5 @@
 ## Required
-- Compatibility with Safari
+- Table `max-height: 90vh` (for Mobile)
 - Responsive Savings Graph
 
 ## Low Impact
@@ -7,4 +7,4 @@
 - Docstrings for `./helpers/` methods and enforce types
 
 ## Considerations
-- Table `max-height: 90vh`
+- Code Splitting / Lazy Load
