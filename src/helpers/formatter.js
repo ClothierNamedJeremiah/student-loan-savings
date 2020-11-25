@@ -1,4 +1,7 @@
 export const toYearMonthString = (months) => {
+  if (months === 0) {
+    return '0 months';
+  }
   const years = Math.floor(months / 12);
   const monthsRem = months % 12;
 
@@ -22,9 +25,9 @@ export const toYearMonthString = (months) => {
   return `${yearsText} ${monthsInYearText}`;
 };
 
-export const toCurrencyString = (num) => {
+export const toCurrencyString = (num, decimalPlaces = 0) => {
   const re = /(\d)(?=(\d{3})+(?!\d))/g;
-  return `$ ${num.toFixed(2).replace(re, '$1,')}`;
+  return `$ ${num.toFixed(decimalPlaces).replace(re, '$1,')}`;
 };
 
 export const toPercentString = (num) => {

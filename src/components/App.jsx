@@ -12,6 +12,32 @@ const App = () => {
     && 'monthsTillPayoffDate' in loanDetails
     && 'totalInterestPaid' in loanDetails;
 
+  let content = null;
+  if (hasLoanInformationBeenSubmitted) {
+    if (loanDetails.monthsTillPayoffDate === 361) {
+      content = (
+        <div>
+          <p style={{ color: 'red' }}>
+            Please use a loan that can be payed off in at least 30 years.
+          </p>
+          <p>The following changes can decrease payoff time:</p>
+          <ul>
+            <li>Decrease current balance</li>
+            <li>Increase monthly payment</li>
+            <li>Decrease annual interest rate</li>
+          </ul>
+        </div>
+      );
+    } else {
+      content = (
+        <>
+          <LoanDetailsContainer loanDetails={loanDetails} />
+          <Savings loanSavings={loanSavings} loanDetails={loanDetails} />
+        </>
+      );
+    }
+  }
+
   return (
     <div id="wrapper">
       <div style={{ maxWidth: '400px' }}>
@@ -24,7 +50,9 @@ const App = () => {
           of your loan.
         </p>
         <p id="description" className="no-margin">
-          Fill out the form below and see how much you could be saving.
+          <em>
+            Fill out the form below and see how much you could be saving.
+          </em>
         </p>
       </div>
       <h2 id="title" className="bot-margin" style={{ textAlign: 'center' }}>Loan Details</h2>
@@ -32,13 +60,7 @@ const App = () => {
         setLoanDetails={setLoanDetails}
         setLoanSavings={setLoanSavings}
       />
-      {hasLoanInformationBeenSubmitted
-        && (
-          <>
-            <LoanDetailsContainer loanDetails={loanDetails} />
-            <Savings loanSavings={loanSavings} />
-          </>
-        )}
+      {content}
     </div>
   );
 };

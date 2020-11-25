@@ -1,9 +1,12 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import { Button, Tooltip } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import SavingsTable from './SavingsTable';
+
+const TOOLTIP_ADDITIONAL_MONTHLY_PAYMENT = 'See how much you\'d save by increasing your monthly payment';
+const TOOLTIP_LOWER_INTEREST_RATE = 'See how much you\'d save by decreasing your interest rate';
 
 const StyledButton = withStyles({
   root: {
@@ -46,21 +49,30 @@ const Savings = (props) => {
         <strong> lower interest rate </strong>
         to see how much you could be saving using one of the two methods.
       </p>
-      <div style={{ display: 'flex', width: '100%', minWidth: 300}}>
-        <StyledButton
-          variant={value === 0 ? 'contained' : 'outlined'}
-          color="primary"
-          onClick={(e) => handleChange(e, 0)}
-        >
-          Additional Monthly Payment
-        </StyledButton>
-        <StyledButton
-          variant={value === 1 ? 'contained' : 'outlined'}
-          color="primary"
-          onClick={(e) => handleChange(e, 1)}
-        >
-          Lower Interest Rate
-        </StyledButton>
+      <p>
+        <em>
+          Note: the data displayed below assumes interest compounds monthly.
+        </em>
+      </p>
+      <div style={{ display: 'flex', width: '100%', minWidth: 300 }}>
+        <Tooltip title={TOOLTIP_ADDITIONAL_MONTHLY_PAYMENT} placement="top">
+          <StyledButton
+            variant={value === 0 ? 'contained' : 'outlined'}
+            color="primary"
+            onClick={(e) => handleChange(e, 0)}
+          >
+            Additional Monthly Payment
+          </StyledButton>
+        </Tooltip>
+        <Tooltip title={TOOLTIP_LOWER_INTEREST_RATE} placement="top">
+          <StyledButton
+            variant={value === 1 ? 'contained' : 'outlined'}
+            color="primary"
+            onClick={(e) => handleChange(e, 1)}
+          >
+            Lower Interest Rate
+          </StyledButton>
+        </Tooltip>
       </div>
 
       {value === 0

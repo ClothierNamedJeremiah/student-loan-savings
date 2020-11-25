@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5 {
 
 button {
   all: unset; /* remove default styles */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /*
@@ -58,8 +59,6 @@ strong {
 }
 
 #description {
-  font-weight: 300;
-  font-style: italic;
   margin: 4%
 }
 
@@ -75,13 +74,35 @@ thead, tbody, tr {
   text-align: center;
 }
 
-tr > th, tr > td {
-  padding: 8px 16px;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
+thead {
+  background-color: #000;
+}
+
+thead th:first-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
 }
 
 thead th:not(:first-child) {
   border-left: 1px solid rgba(224, 224, 224, 1);
+}
+
+tbody > tr {
+  border-top: 1px solid rgba(224, 224, 224, 1);
+}
+
+/* Zebra Striping */
+tr:nth-child(odd) td {
+  background-color: var(--color-light-grey);
+}
+
+tbody > tr > th {
+  white-space: nowrap;
+}
+
+th, td {
+  padding: 8px 16px;
 }
 
 th {
@@ -89,11 +110,6 @@ th {
   text-transform: uppercase;
   background-color: var(--color-black);
   color: var(--color-white);
-}
-
-/* Zebra Striping */
-tr:nth-child(odd) td {
-  background-color: var(--color-light-grey);
 }
 
 /* font-style */
@@ -198,6 +214,7 @@ tr:nth-child(odd) td {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
   }
 
   thead {
@@ -209,7 +226,7 @@ tr:nth-child(odd) td {
 
   /* Convert the table to only display 3 columns */
   tbody, thead {
-    width: calc(4/3 * 100%);
+    width: calc(5/3 * 100%);
   }
 
   tr {
@@ -219,13 +236,14 @@ tr:nth-child(odd) td {
 
   td, th {
     width: 50%;
-    scroll-snap-align: start;
+    scroll-snap-align: end;
   }
 
   tr > th:first-child, tr > td:first-child {
     position: sticky;
     left: 0;
     z-index: 1;
+    width: 175px;
   }
 }
 
@@ -242,5 +260,27 @@ tr:nth-child(odd) td {
 @media (max-width: 350px) {
   #loan-details {
     width: 100%;
+  }
+  #wrapper {
+    margin: 2px;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+th > button > svg {
+  border-radius: 4px;
+  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
+}
+
+/* Only apply stylse to devices with hover capability */
+@media (hover: hover) {
+  th svg:hover {
+    background-color: #ffc0cb;
+    border-radius: 4px;
+
+    transition: background-color .6s cubic-bezier(.4,0,.2,1);
   }
 }

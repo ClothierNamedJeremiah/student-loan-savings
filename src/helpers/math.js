@@ -29,6 +29,7 @@ export const calcLoanDetails = (currentBalance, monthlyPayment, annualInterestRa
 
 const calcSavingsWithAdditionalMonthlyPayment = (
   currentBalance, baseMonthlyPayment, annualInterestRate, totalInterestPaid,
+  monthsTillPayoffDate,
 ) => {
   const THRESHOLDS = [
     50, 100, 150, 200, 250, 300, 350, 400, 450, 500,
@@ -45,6 +46,7 @@ const calcSavingsWithAdditionalMonthlyPayment = (
     savings.push([
       monthlyPayment,
       res.monthsTillPayoffDate,
+      monthsTillPayoffDate - res.monthsTillPayoffDate,
       res.totalInterestPaid,
       totalInterestPaid - res.totalInterestPaid,
     ]);
@@ -55,6 +57,7 @@ const calcSavingsWithAdditionalMonthlyPayment = (
 
 const calcSavingsWithLowerInterestRate = (
   currentBalance, baseMonthlyPayment, annualInterestRate, totalInterestPaid,
+  monthsTillPayoffDate,
 ) => {
   let threshold = Math.floor(annualInterestRate / 0.0025) * 0.0025;
   const savings = [];
@@ -67,6 +70,7 @@ const calcSavingsWithLowerInterestRate = (
     savings.push([
       threshold * 100,
       res.monthsTillPayoffDate,
+      monthsTillPayoffDate - res.monthsTillPayoffDate,
       res.totalInterestPaid,
       totalInterestPaid - res.totalInterestPaid,
     ]);
@@ -78,6 +82,7 @@ const calcSavingsWithLowerInterestRate = (
 
 export const calcLoanSavings = (
   currentBalance, baseMonthlyPayment, annualInterestRate, totalInterestPaid,
+  monthsTillPayoffDate,
 ) => {
   // console.group('%c CALCULATING SAVINGS DETAILS', 'color: #004D40');
   // console.log(`currentBalance: ${currentBalance}`);
@@ -87,10 +92,12 @@ export const calcLoanSavings = (
 
   const additionalMonthlyPayment = calcSavingsWithAdditionalMonthlyPayment(
     currentBalance, baseMonthlyPayment, annualInterestRate, totalInterestPaid,
+    monthsTillPayoffDate,
   );
 
   const lowerInterestRate = calcSavingsWithLowerInterestRate(
     currentBalance, baseMonthlyPayment, annualInterestRate, totalInterestPaid,
+    monthsTillPayoffDate,
   );
 
   return {

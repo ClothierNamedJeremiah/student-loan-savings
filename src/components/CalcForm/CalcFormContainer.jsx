@@ -71,7 +71,8 @@ const CalcFormContainer = (props) => {
       convertCurrencyStringToFloat(currentBalance),
       convertCurrencyStringToFloat(monthlyPayment),
       convertCurrencyStringToFloat(annualInterestRate) / 100,
-      convertCurrencyStringToFloat(loanDetails.totalInterestPaid),
+      loanDetails.totalInterestPaid,
+      loanDetails.monthsTillPayoffDate,
     );
 
     setLoanDetails(loanDetails);
