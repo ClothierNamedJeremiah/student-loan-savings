@@ -1,7 +1,11 @@
 {
-  "name": "student-loans-calc",
+  "name": "student-loan-savings",
   "version": "1.0.0",
-  "description": "A simple student loan payoff calculator",
+  "description": "See how much you could be saving on your student loans by increasing monthly payments or decreasing your interest rate.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ClothierNamedJeremiah/student-loan-savings.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
