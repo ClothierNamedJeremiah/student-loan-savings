@@ -44,9 +44,9 @@ const App = () => {
         <h1 id="title" style={{ textAlign: 'center' }}>Student Loan Savings</h1>
         <p id="description" className="no-margin">
           <strong>Increasing monthly payments </strong>
-          and
+          and/or
           <strong> decreasing the interest rate </strong>
-          on student loans can drastrically reduce the total interest paid over the lifetime
+          on student loans can drastically reduce the total interest paid over the lifetime
           of your loan.
         </p>
         <p id="description" className="no-margin">
