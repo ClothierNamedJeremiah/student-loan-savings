@@ -91,15 +91,12 @@ thead th:not(:first-child) {
 
 tbody > tr {
   border-top: 1px solid rgba(224, 224, 224, 1);
+  white-space: nowrap;
 }
 
 /* Zebra Striping */
 tr:nth-child(odd) td {
   background-color: var(--color-light-grey);
-}
-
-tbody > tr > th {
-  white-space: nowrap;
 }
 
 th, td {
@@ -228,6 +225,10 @@ th {
   /* Convert the table to only display 3 columns */
   tbody, thead {
     width: calc(5/3 * 100%);
+  }
+
+  tbody > tr {
+    white-space: normal;
   }
 
   tr {
