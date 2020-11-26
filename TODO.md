@@ -1,7 +1,6 @@
 ## Required
-- Table `max-height: 90vh` (for Mobile) // determine proper max-height for table (also need to adjust margins)
- if making table resizable so people can scroll to bottom of page on mobile
-- Responsive Savings Graph
+- Scroll Snap on Safari and iOS
+- Decmial Numpad on iOS
 
 ## Low Impact
 - General CSS & Component Cleanup
@@ -9,3 +8,4 @@
 
 ## Considerations
 - Code Splitting / Lazy Load
+- Responsive Savings Graph
