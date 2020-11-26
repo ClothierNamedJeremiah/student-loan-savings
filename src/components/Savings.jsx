@@ -47,13 +47,7 @@ const Savings = (props) => {
         <strong> increasing monthly payment </strong>
         and
         <strong> decreasing interest rate </strong>
-        to see how much you could be saving using one of the two methods.
-      </p>
-      <p>
-        <em>
-          Note: the data displayed in the table below assumes interest compounds
-          monthly and the interest rate is fixed.
-        </em>
+        to see different loan savings tables
       </p>
       <div style={{ display: 'flex', width: '100%', minWidth: 250 }}>
         <Tooltip title={TOOLTIP_HIGHER_MONTHLY_PAYMENT} placement="top">
@@ -90,6 +84,13 @@ const Savings = (props) => {
           />
         )
       }
+
+      <p>
+        <em>
+          Note: the data displayed in the table above assumes interest compounds
+          monthly and the interest rate is fixed.
+        </em>
+      </p>
     </div>
   );
 };
