@@ -50,7 +50,7 @@ const CalcForm = (props) => {
             onChange={(e) => setCurrentBalance(e.target.value)}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             label="Current balance *"
-            placeholder="0.00"
+            placeholder="12,006.97"
             autoComplete="off"
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
@@ -67,7 +67,7 @@ const CalcForm = (props) => {
             onChange={(e) => setMonthlyPayment(e.target.value)}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             label="Monthly payment *"
-            placeholder="0.00"
+            placeholder="158.92"
             autoComplete="off"
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />
@@ -84,7 +84,7 @@ const CalcForm = (props) => {
             onChange={(e) => setAnnualInterestRate(e.target.value)}
             endAdornment={<InputAdornment position="end">%</InputAdornment>}
             label="Annual interest rate *"
-            placeholder="0.00"
+            placeholder="4.86"
             autoComplete="off"
             inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
           />

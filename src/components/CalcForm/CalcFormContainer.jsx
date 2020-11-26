@@ -19,9 +19,18 @@ const CalcFormContainer = (props) => {
   // const [currentBalance, setCurrentBalance] = useState('30000.00');
   // const [monthlyPayment, setMonthlyPayment] = useState('393.60');
   // const [annualInterestRate, setAnnualInterestRate] = useState('5.80');
-  const [currentBalance, setCurrentBalance] = useState('');
-  const [monthlyPayment, setMonthlyPayment] = useState('');
-  const [annualInterestRate, setAnnualInterestRate] = useState('');
+  const [currentBalance, setCurrentBalance] = useState(
+    window.sessionStorage.getItem('sls-currentBalance')
+    || ''
+  );
+  const [monthlyPayment, setMonthlyPayment] = useState(
+    window.sessionStorage.getItem('sls-monthlyPayment')
+    || ''
+  );
+  const [annualInterestRate, setAnnualInterestRate] = useState(
+    window.sessionStorage.getItem('sls-annualInterestRate')
+    || ''
+  );
 
   const balErrorMsg = useFormValidator(isValidCurrency, currentBalance,
     'Please enter a valid U.S amount.');
@@ -53,6 +62,9 @@ const CalcFormContainer = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    window.sessionStorage.setItem('sls-currentBalance', currentBalance);
+    window.sessionStorage.setItem('sls-monthlyPayment', monthlyPayment);
+    window.sessionStorage.setItem('sls-annualInterestRate', annualInterestRate);
 
     /*
       Blur the input field after form submission.

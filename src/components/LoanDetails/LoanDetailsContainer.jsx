@@ -28,7 +28,7 @@ const LoanDetailsContainer = (props) => {
     <LoanDetails
       payoffDateEstimate={addMonthsToNow(monthsTillPayoffDate)}
       timeUntilPayoffStr={timeUntilPayoffStr}
-      totalInterestPaidStr={toCurrencyString(totalInterestPaid, 2)}
+      totalInterestPaidStr={toCurrencyString(totalInterestPaid, 2, ' ')}
     />
   );
 };

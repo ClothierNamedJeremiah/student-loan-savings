@@ -55,7 +55,7 @@ const Savings = (props) => {
           monthly and the interest rate is fixed.
         </em>
       </p>
-      <div style={{ display: 'flex', width: '100%', minWidth: 300 }}>
+      <div style={{ display: 'flex', width: '100%', minWidth: 250 }}>
         <Tooltip title={TOOLTIP_HIGHER_MONTHLY_PAYMENT} placement="top">
           <StyledButton
             variant={value === 0 ? 'contained' : 'outlined'}

@@ -87,8 +87,8 @@ const SavingsTable = (props) => {
               `${columnZeroSign} ${columZeroFormatter(row[0])}`,
               toYearMonthString(row[1]),
               toYearMonthString(row[2]),
-              toCurrencyString(row[3], 2),
-              toCurrencyString(row[4], 2),
+              toCurrencyString(row[3], 2, ' '),
+              toCurrencyString(row[4], 2, ' '),
             ]}
           />
         ))}
