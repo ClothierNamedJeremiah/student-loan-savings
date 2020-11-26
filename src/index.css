@@ -191,7 +191,7 @@ th {
 
 #savings {
   width: 100%;
-  padding: 10px;
+  padding: 10px 16px;
   max-width: 750px;
   overflow-x: auto;
 }
@@ -254,7 +254,7 @@ th {
   }
 
   #wrapper { 
-    margin: 10px;
+    margin: 5% 10px;
   }
 }
 
@@ -263,7 +263,7 @@ th {
     width: 100%;
   }
   #wrapper {
-    margin: 2px;
+    margin: 5% 2px;
   }
 }
 
