@@ -50,9 +50,9 @@ const CalcForm = (props) => {
             onChange={(e) => setCurrentBalance(e.target.value)}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             label="Current balance *"
-            placeholder="12,006.97"
+            placeholder="0.00"
             autoComplete="off"
-            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            inputProps={{ inputMode: 'decimal' }}
           />
           <FormHelperText className="error-text" variant="outlined" dense="normal">
             {balErrorMsg}
@@ -67,9 +67,9 @@ const CalcForm = (props) => {
             onChange={(e) => setMonthlyPayment(e.target.value)}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             label="Monthly payment *"
-            placeholder="158.92"
+            placeholder="0.00"
             autoComplete="off"
-            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            inputProps={{ inputMode: 'decimal' }}
           />
           <FormHelperText className="error-text" variant="outlined" dense="normal">
             {monthlyErrorMsg}
@@ -82,11 +82,12 @@ const CalcForm = (props) => {
             id="apr"
             value={annualInterestRate}
             onChange={(e) => setAnnualInterestRate(e.target.value)}
+            startAdornment=" "
             endAdornment={<InputAdornment position="end">%</InputAdornment>}
             label="Annual interest rate *"
-            placeholder="4.86"
+            placeholder="0.00"
             autoComplete="off"
-            inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+            inputProps={{ inputMode: 'decimal' }}
           />
           <FormHelperText className="error-text" variant="outlined" dense="normal">
             {aprErrorMsg}
