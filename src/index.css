@@ -139,6 +139,10 @@ th {
   margin: 5%;
 }
 
+.block-max-width--400 {
+  max-width: 400px;
+}
+
 .grid-center {
   display: grid;
   place-items: center;

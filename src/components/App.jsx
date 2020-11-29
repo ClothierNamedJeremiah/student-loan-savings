@@ -40,21 +40,17 @@ const App = () => {
 
   return (
     <div className="grid-center margin-responsive">
-      <div style={{ maxWidth: '400px' }}>
-        <h1 className="section-title text-align--center">Student Loan Savings</h1>
-        <p >
-          <strong>Increasing monthly payments </strong>
-          and/or
-          <strong> decreasing the interest rate </strong>
-          on student loans will reduce the total interest paid over the lifetime
-          of your loan.
+      <h1 className="section-title text-align--center">Student Loan Savings</h1>
+      <section className="block-max-width--400">
+        <p>
+          <strong>Increasing monthly payments</strong> and/or
+          <strong> decreasing the interest rate </strong> on student loans will
+          reduce the total interest paid over the lifetime of your loan.
         </p>
-        <p >
-          <em>
-            Fill out the form below and see how much you could be saving.
-          </em>
+        <p>
+          <em>Fill out the form below and see how much you could be saving.</em>
         </p>
-      </div>
+      </section>
       <h2 className="section-title text-align--center bot-margin">Loan Details</h2>
       <Calculator
         setLoanDetails={setLoanDetails}
