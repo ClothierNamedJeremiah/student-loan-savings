@@ -37,29 +37,34 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
+.section-title {
+  color: var(--color-dark-green);
+  letter-spacing: 0.04em;
+}
+
 button {
   all: unset; /* remove default styles */
-  -webkit-tap-highlight-color: transparent;
 }
 
 /*
-  Prevents background color from appearing when the form
-  button is clicked (expands and shrinks).
+  Prevents background color from appearing blue when
+  the button to expand the form is clicked on mobile
 */
 input, textarea, button, select, a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
 }
 
-h2 {
-  color: var(--color-grey);
+.text-align--center {
+  text-align: center;
+}.text-color--red {
+  color: red;
+}.text-fw--500 {
+  font-weight: 500;
 }
 
 strong {
   font-weight: 700;
-}
-
-#description {
-  margin: 4%
 }
 
 table {
@@ -130,17 +135,13 @@ th {
   margin-top: 1rem;
 } .bot-margin {
   margin-bottom: 1rem;
+} .margin-responsive {
+  margin: 5%;
 }
 
-#wrapper {
-  margin: 5%;
+.grid-center {
   display: grid;
   place-items: center;
-}
-
-#title {
-  color: var(--color-dark-green);
-  letter-spacing: 0.04em;
 }
 
 #calc {
@@ -166,8 +167,6 @@ th {
   flex-grow: 1;
   font-size: 18px;
 } #calc-form {
-  display: grid;
-  place-items: center;
   padding: 8px 16px;
   row-gap: 1em;
   padding-bottom: 1em;
@@ -201,6 +200,7 @@ th {
     display: block;
   }
 
+  /* TODO: see if we can update class, otherwise, ignore */
   th, td {
     display: grid;
     place-items: center;
@@ -252,7 +252,7 @@ th {
     padding: 4px;
   }
 
-  #wrapper { 
+  .margin-responsive { 
     margin: 5% 10px;
   }
 }
@@ -261,18 +261,9 @@ th {
   #loan-details {
     width: 100%;
   }
-  #wrapper {
+  .margin-responsive {
     margin: 5% 2px;
   }
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-th > button > svg {
-  border-radius: 4px;
-  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
 }
 
 /* Only apply stylse to devices with hover capability */
@@ -283,4 +274,13 @@ th > button > svg {
 
     transition: background-color .6s cubic-bezier(.4,0,.2,1);
   }
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+th > button > svg {
+  border-radius: 4px;
+  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
 }

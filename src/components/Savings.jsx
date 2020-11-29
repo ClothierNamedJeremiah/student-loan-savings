@@ -41,13 +41,25 @@ const Savings = (props) => {
 
   return (
     <div id="savings">
-      <h2 className="bot-margin" id="title">Loan Savings</h2>
+      <h2 className="section-title bot-margin">Loan Savings</h2>
       <p>
-        Toggle between
-        <strong> increasing monthly payment </strong>
-        and
-        <strong> decreasing interest rate </strong>
-        to see different loan savings tables
+        The <strong>table below illustrates how the payoff date and total interest paid
+        change </strong> when your monthly payment increases or when your interest rate
+        decreases.
+      </p>
+      <p>
+        The table allows comparison between your current loan details and expected
+        loan details, and <strong>shows that both time and money can be saved by increasing
+        monthly payments or decreasing the interest rate.</strong>
+      </p>
+      <p>
+        <em>
+          Toggle between
+          <strong> increasing monthly payment </strong>
+          and
+          <strong> decreasing interest rate </strong>
+          to see a different tables.
+        </em>
       </p>
       <div style={{ display: 'flex', width: '100%', minWidth: 250 }}>
         <Tooltip title={TOOLTIP_HIGHER_MONTHLY_PAYMENT} placement="top">

@@ -40,7 +40,7 @@ const CalcForm = (props) => {
       style={{ height }}
       className="expandable"
     >
-      <form id="calc-form">
+      <form id="calc-form" className="grid-center">
         <FormControl error={balErrorMsg !== ''} variant="outlined">
           <InputLabel htmlFor="current-balance">Current balance *</InputLabel>
           <OutlinedInput
