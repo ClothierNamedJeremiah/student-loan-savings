@@ -36,11 +36,8 @@ const CalcForm = (props) => {
   } = props;
 
   return (
-    <div
-      style={{ height }}
-      className="expandable"
-    >
-      <form id="calc-form" className="grid-center">
+    <div style={{ height }} className="will-change--height-0">
+      <form className="grid-center row-gap--1 padding--16 padding-top--8">
         <FormControl error={balErrorMsg !== ''} variant="outlined">
           <InputLabel htmlFor="current-balance">Current balance *</InputLabel>
           <OutlinedInput
@@ -54,7 +51,7 @@ const CalcForm = (props) => {
             autoComplete="off"
             inputProps={{ inputMode: 'decimal' }}
           />
-          <FormHelperText className="error-text" variant="outlined" dense="normal">
+          <FormHelperText variant="outlined" dense="normal">
             {balErrorMsg}
           </FormHelperText>
         </FormControl>
@@ -71,7 +68,7 @@ const CalcForm = (props) => {
             autoComplete="off"
             inputProps={{ inputMode: 'decimal' }}
           />
-          <FormHelperText className="error-text" variant="outlined" dense="normal">
+          <FormHelperText variant="outlined" dense="normal">
             {monthlyErrorMsg}
           </FormHelperText>
         </FormControl>
@@ -89,7 +86,7 @@ const CalcForm = (props) => {
             autoComplete="off"
             inputProps={{ inputMode: 'decimal' }}
           />
-          <FormHelperText className="error-text" variant="outlined" dense="normal">
+          <FormHelperText variant="outlined" dense="normal">
             {aprErrorMsg}
           </FormHelperText>
         </FormControl>

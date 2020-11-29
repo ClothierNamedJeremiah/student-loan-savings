@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Header from './Header';
 import Calculator from './Calculator';
 import LoanDetailsContainer from './LoanDetails/LoanDetailsContainer';
 import Savings from './Savings';
@@ -40,27 +41,19 @@ const App = () => {
 
   /* TODO: restructure DOM for 'Loan Details Section' */
   return (
-    <main className="grid-center margin-responsive">
-      <h1 className="section-title text-align--center">Student Loan Savings</h1>
-      <section className="block-max-width--400">
-        <p>
-          <strong>Increasing monthly payments</strong> and/or
-          <strong> decreasing the interest rate </strong> on student loans will
-          reduce the total interest paid over the lifetime of your loan.
-        </p>
-        <p>
-          <em>Fill out the form below and see how much you could be saving.</em>
-        </p>
-      </section>
-      <section>
-        <h2 className="section-title text-align--center bot-margin">Loan Details</h2>
-        <Calculator
-          setLoanDetails={setLoanDetails}
-          setLoanSavings={setLoanSavings}
-        />
-      </section>
-      {content}
-    </main>
+    <div className="grid-center">
+      <Header />
+      <main className="grid-center">
+        <section>
+          <h2 className="section-title text-align--center bot-margin">Loan Details</h2>
+          <Calculator
+            setLoanDetails={setLoanDetails}
+            setLoanSavings={setLoanSavings}
+          />
+        </section>
+        {content}
+      </main>
+    </div>
   );
 };
 

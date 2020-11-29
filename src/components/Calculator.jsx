@@ -13,7 +13,7 @@ const Calculator = (props) => {
   const [isCalcFormExpanded, setCalcExpanded] = useState(true);
 
   return (
-    <div id="calc">
+    <div id="calc" className="block-max-width--240">
       <CalcSwitch
         isCalcFormExpanded={isCalcFormExpanded}
         setCalcExpanded={setCalcExpanded}

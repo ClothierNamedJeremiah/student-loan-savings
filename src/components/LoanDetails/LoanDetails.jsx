@@ -5,13 +5,17 @@ const LoanDetails = (props) => {
   const { payoffDateEstimate, timeUntilPayoffStr, totalInterestPaidStr } = props;
 
   return (
-    <div id="loan-details">
-      <h3 className="no-margin">PAYOFF DATE</h3>
-      <h4 className="fs-medium">{payoffDateEstimate}</h4>
-      <p className="no-margin fs-light">{timeUntilPayoffStr}</p>
-      <h3 className="top-margin">TOTAL INTEREST PAID</h3>
-      <p className="no-margin">{totalInterestPaidStr}</p>
-    </div>
+    <article>
+      <article>
+        <h3>PAYOFF DATE</h3>
+        <h4 className="font-weight--500">{payoffDateEstimate}</h4>
+        <em>{timeUntilPayoffStr}</em>
+      </article>
+      <article>
+        <h3>TOTAL INTEREST PAID</h3>
+        <p>{totalInterestPaidStr}</p>
+      </article>
+    </article>
   );
 };
 

@@ -53,6 +53,7 @@ const SavingsTable = (props) => {
     });
   }, []);
 
+  /* TODO: Update Button */
   return (
     <table>
       <thead>
@@ -62,10 +63,10 @@ const SavingsTable = (props) => {
               ? null
               : (
                 <>
-                  <button type="button" onClick={() => handleClick(0)} className={isLeftArrowVisible ? '' : 'hidden'}>
+                  <button type="button" onClick={() => handleClick(0)} className={isLeftArrowVisible ? '' : 'visibility--hidden'}>
                     <ArrowBackIosRoundedIcon />
                   </button>
-                  <button type="button" onClick={() => handleClick(1)} className={isRightArrowVisible ? '' : 'hidden'}>
+                  <button type="button" onClick={() => handleClick(1)} className={isRightArrowVisible ? '' : 'visibility--hidden'}>
                     <ArrowForwardIosRoundedIcon />
                   </button>
                 </>

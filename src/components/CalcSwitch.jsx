@@ -18,7 +18,7 @@ const CalcSwitch = (props) => {
   return (
     <button
       id="calc-switch"
-      className="button-base text-align--left padding--8x16 padding-right--4"
+      className="button-base text-align--left padding--8x16 padding-right--0"
       type="button"
       onClick={() => setCalcExpanded(!isCalcFormExpanded)}
     >
