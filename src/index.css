@@ -42,21 +42,36 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 0.04em;
 }
 
-button {
-  all: unset; /* remove default styles */
-}
+.button-base {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
 
-/*
-  Prevents background color from appearing blue when
-  the button to expand the form is clicked on mobile
-*/
-input, textarea, button, select, a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  /*
+    Prevents background color from appearing blue when
+    the button to expand the form is clicked on mobile
+  */
+  -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .text-align--center {
   text-align: center;
+}.text-align--left {
+  text-align: left;
 }.text-color--red {
   color: red;
 }.text-fw--500 {
@@ -148,26 +163,24 @@ th {
   place-items: center;
 }
 
+.padding--8x16 {
+  padding: 8px 16px;
+}.padding-right--4 {
+  padding-right: 4px;
+}
+
 #calc {
-  width: fit-content;
-  max-width: 250px;
-  background-color: #fff;
-  transition: height 0.2s;
-  will-change: height;
+  background-color: var(--color-white);
   box-shadow: var(--box-shadow-weak);
   border-radius: 4px;
   border-left: 5px solid var(--color-dark-green);
+  transition: height 0.2s;
+  will-change: height;
 } #calc-switch {
-  box-sizing: border-box;
+  height: 48px;
   width: 100%;
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px 16px;
-  height: 3em; /* Fixed Height because Material UI SVG scales wierd */
 } #calc-switch-text {
-  margin: 0;
   flex-grow: 1;
   font-size: 18px;
 } #calc-form {
@@ -183,7 +196,7 @@ th {
   will-change: height;
 }
 
-.tt-180 {
+.transform--rotate180 {
   transform: rotate(-180deg);
 }
 
