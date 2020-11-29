@@ -182,8 +182,6 @@ th {
 
 .tt-180 {
   transform: rotate(-180deg);
-} .tt-none {
-  transition: transform 0.2s;
 }
 
 #savings {
