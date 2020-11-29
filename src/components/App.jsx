@@ -38,8 +38,9 @@ const App = () => {
     }
   }
 
+  /* TODO: restructure DOM for 'Loan Details Section' */
   return (
-    <div className="grid-center margin-responsive">
+    <main className="grid-center margin-responsive">
       <h1 className="section-title text-align--center">Student Loan Savings</h1>
       <section className="block-max-width--400">
         <p>
@@ -51,13 +52,15 @@ const App = () => {
           <em>Fill out the form below and see how much you could be saving.</em>
         </p>
       </section>
-      <h2 className="section-title text-align--center bot-margin">Loan Details</h2>
-      <Calculator
-        setLoanDetails={setLoanDetails}
-        setLoanSavings={setLoanSavings}
-      />
+      <section>
+        <h2 className="section-title text-align--center bot-margin">Loan Details</h2>
+        <Calculator
+          setLoanDetails={setLoanDetails}
+          setLoanSavings={setLoanSavings}
+        />
+      </section>
       {content}
-    </div>
+    </main>
   );
 };
 
