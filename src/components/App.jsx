@@ -8,8 +8,6 @@ const App = () => {
   const [loanDetails, setLoanDetails] = useState({});
   const [loanSavings, setLoanSavings] = useState({});
 
-  console.log(loanDetails);
-
   const isValidLoan = loanDetails.constructor === Object
     && 'monthsTillPayoffDate' in loanDetails
     && 'totalInterestPaid' in loanDetails
@@ -19,14 +17,14 @@ const App = () => {
   return (
     <div className="grid-center">
       <Header />
-      <main className="grid-center">
+      <main>
         <LoanDetails
           loanDetails={loanDetails}
           setLoanDetails={setLoanDetails}
           setLoanSavings={setLoanSavings}
         />
-        {isValidLoan
-          && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />}
+        {/* {isValidLoan
+          && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />} */}
       </main>
     </div>
   );

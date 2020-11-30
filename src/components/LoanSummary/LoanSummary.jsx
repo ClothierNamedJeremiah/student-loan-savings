@@ -13,7 +13,7 @@ const LoanSummary = (props) => {
   if (error) {
     componentRenderedContent = (
       <article>
-        <p className="text-color--red text-fw--500">
+        <p className="fs-error">
           Please use a loan that can be payed off in at least 30 years.
         </p>
         <p>The following changes can decrease payoff time:</p>
@@ -26,13 +26,13 @@ const LoanSummary = (props) => {
     );
   } else {
     componentRenderedContent = (
-      <section>
-        <article>
+      <section className="width--100 margin--top margin--bot">
+        <article className="padding--10 padding-left--4">
           <h3 className="margin--none">PAYOFF DATE</h3>
           <h4 className="margin--none font-weight--500">{payoffDateEstimate}</h4>
           <em className="margin--none">{timeUntilPayoffStr}</em>
         </article>
-        <article>
+        <article className="padding--10 padding-left--4">
           <h3 className="margin--none">TOTAL INTEREST PAID</h3>
           <p className="margin--none">{totalInterestPaidStr}</p>
         </article>

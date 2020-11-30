@@ -13,8 +13,8 @@ const LoanDetails = (props) => {
     && 'totalInterestPaid' in loanDetails;
 
   return (
-    <section>
-      <h2 className="section-title text-align--center bot-margin">Loan Details</h2>
+    <section className="grid-center">
+      <h2 className="section-title">Loan Details</h2>
       <Calculator
         setLoanDetails={setLoanDetails}
         setLoanSavings={setLoanSavings}

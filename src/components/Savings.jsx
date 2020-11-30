@@ -41,7 +41,7 @@ const Savings = (props) => {
 
   return (
     <section id="savings">
-      <h2 className="section-title bot-margin">Loan Savings</h2>
+      <h2 className="section-title margin--bot">Loan Savings</h2>
       <p>
         The <strong>table below illustrates how the payoff date and total interest paid
         change </strong> when your monthly payment increases or when your interest rate
