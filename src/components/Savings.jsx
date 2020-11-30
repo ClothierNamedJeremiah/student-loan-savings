@@ -40,7 +40,7 @@ const Savings = (props) => {
   };
 
   return (
-    <div id="savings">
+    <section id="savings">
       <h2 className="section-title bot-margin">Loan Savings</h2>
       <p>
         The <strong>table below illustrates how the payoff date and total interest paid
@@ -103,7 +103,7 @@ const Savings = (props) => {
           monthly and the interest rate is fixed.
         </em>
       </p>
-    </div>
+    </section>
   );
 };
 
