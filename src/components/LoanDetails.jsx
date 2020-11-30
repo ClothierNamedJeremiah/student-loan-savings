@@ -14,7 +14,7 @@ const LoanDetails = (props) => {
 
   return (
     <section className="grid-center">
-      <h2 className="section-title">Loan Details</h2>
+      <h2 className="section-title margin-top--none">Loan Details</h2>
       <Calculator
         setLoanDetails={setLoanDetails}
         setLoanSavings={setLoanSavings}

@@ -23,8 +23,8 @@ const App = () => {
           setLoanDetails={setLoanDetails}
           setLoanSavings={setLoanSavings}
         />
-        {/* {isValidLoan
-          && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />} */}
+        {isValidLoan
+          && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />}
       </main>
     </div>
   );

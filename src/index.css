@@ -14,6 +14,7 @@
  --box-shadow-strong: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
+/* GLOBAL STYLES */
 *, :after, :before {
   box-sizing: border-box;
 }
@@ -35,12 +36,18 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
 }
 
-.section-title {
-  color: var(--color-dark-green);
-  letter-spacing: 0.04em;
-  margin-bottom: 1rem;
+strong {
+  font-weight: 700;
 }
 
+th > button > svg {
+  border-radius: 4px;
+  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
+}
+/* END OF GLOBAL STYLES */
+
+
+/* BASE STYLES */
 .button-base {
   color: inherit;
   border: 0;
@@ -66,22 +73,10 @@ h1, h2, h3, h4, h5 {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
+/* END OF BASE STYLES */
 
-.text-align--center {
-  text-align: center;
-}.text-align--left {
-  text-align: left;
-}
 
-.fs-error {
-  color: red;
-  font-weight: 500;
-}
-
-strong {
-  font-weight: 700;
-}
-
+/* TABLE STYLES */
 table {
   border-collapse: collapse;
   min-width: 250px;
@@ -129,43 +124,9 @@ th {
   background-color: var(--color-black);
   color: var(--color-white);
 }
+/* END OF TABLE STYLES */
 
-.margin--none {
-  margin: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-}.margin--top {
-  margin-top: 1rem;
-}.margin--bot {
-  margin-bottom: 1rem;
-} .margin-responsive {
-  margin: 5%;
-}
-.width--100 { width: 100% }
-.block-max-width--400 {
-  max-width: 400px;
-}.block-max-width--240 {
-  max-width: 240px;
-}
-
-.font-weight--500 { font-weight: 500; }
-
-.grid-center {
-  display: grid;
-  place-items: center;
-}
-
-.padding--16 { padding: 16px; }
-.padding--10 { padding: 10px; }
-.padding--8x16 { padding: 8px 16px; }
-.padding-top--8 { padding-top: 8px; }
-.padding-right--0 { padding-right: 0px; }
-.padding-left--4 { padding-left: 4px; }
-
-.row-gap--1 { row-gap: 1em; }
-
+/* ID STYLES */
 #calc {
   background-color: var(--color-white);
   box-shadow: var(--box-shadow-weak);
@@ -178,8 +139,66 @@ th {
 } #calc-switch-text {
   flex-grow: 1;
   font-size: 18px;
+} #savings {
+  width: 100%;
+  padding: 10px 16px;
+  max-width: 750px;
+  overflow-x: auto;
+}
+/* END OF ID STYLES */
+
+/* LAYOUT STYLES */
+.grid-center {
+  display: grid;
+  place-items: center;
 }
 
+.width--100 { width: 100%; }
+.max-width--400 { max-width: 400px; }
+.max-width--240 { max-width: 240px; }
+
+.margin-top--1 { margin-top: 1rem; }
+.margin-top--none { margin-top: 0; }
+.margin--none {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}.margin-responsive {
+  margin: 5%;
+}
+
+.padding--16 { padding: 16px; }
+.padding--10 { padding: 10px; }
+.padding--8x16 { padding: 8px 16px; }
+.padding-top--8 { padding-top: 8px; }
+.padding-right--0 { padding-right: 0px; }
+.padding-left--4 { padding-left: 4px; }
+
+.row-gap--1 { row-gap: 1em; }
+/* END OF LAYOUT STYLES */
+
+
+/* TEXT STYLES */
+.text-align--left { text-align: left; }
+.text-align--center { text-align: center; }
+
+.font-weight--500 { font-weight: 500; }
+
+.fs-error {
+  color: red;
+  font-weight: 500;
+}
+
+.section-title {
+  color: var(--color-dark-green);
+  letter-spacing: 0.04em;
+}
+/* END OF TEXT STYLES*/
+
+
+/* OTHER STYLES */
 .will-change--height-0 {
   height: 0px;
   overflow-y: hidden;
@@ -191,18 +210,13 @@ th {
   transform: rotate(-180deg);
 }
 
-#savings {
-  width: 100%;
-  padding: 10px 16px;
-  max-width: 750px;
-  overflow-x: auto;
+.visibility--hidden {
+  visibility: hidden;
 }
+/* END OF OTHER STYLES */
 
-/* #loan-details {
-  width: 275px;
-  padding: 24px 16px;  
-} */
 
+/* RESPONSIVE STYLES */
 @media (max-width: 725px) {
   table, thead, tbody {
     display: block;
@@ -261,16 +275,7 @@ th {
   }
 
   .margin-responsive { 
-    margin: 5% 10px;
-  }
-}
-
-@media (max-width: 350px) {
-  #loan-details {
-    width: 100%;
-  }
-  .margin-responsive {
-    margin: 5% 2px;
+    margin: 10px;
   }
 }
 
@@ -283,12 +288,4 @@ th {
     transition: background-color .6s cubic-bezier(.4,0,.2,1);
   }
 }
-
-.visibility--hidden {
-  visibility: hidden;
-}
-
-th > button > svg {
-  border-radius: 4px;
-  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
-}
+/* END OF RESPONSIVE STYLES */

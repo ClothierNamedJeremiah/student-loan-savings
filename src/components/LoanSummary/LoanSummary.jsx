@@ -26,7 +26,7 @@ const LoanSummary = (props) => {
     );
   } else {
     componentRenderedContent = (
-      <section className="width--100 margin--top margin--bot">
+      <section className="margin-top--1 margin--bot">
         <article className="padding--10 padding-left--4">
           <h3 className="margin--none">PAYOFF DATE</h3>
           <h4 className="margin--none font-weight--500">{payoffDateEstimate}</h4>
