@@ -43,21 +43,16 @@ const Savings = (props) => {
     <section id="savings">
       <h2 className="section-title margin--bot">Loan Savings</h2>
       <p>
-        The table below illustrates how both values: <b>payoff date</b> and <b>total interest paid </b>
-        change when either monthly payment increases or interest rate decreases.
-      </p>
-      <p>
-        The table allows comparison between your current loan details and expected
-        loan details, and <strong>shows that both time and money can be saved by increasing
-        monthly payments or decreasing the interest rate.</strong>
+        The table below provides a comparison between your current and adjusted loan details, which
+        shows that
+        <strong>
+          &nbsp;both time and money can be saved by increasing monthly payments or
+          decreasing the interest rate.
+        </strong>
       </p>
       <p>
         <i>
-          Toggle between
-          <strong> increasing monthly payment </strong>
-          and
-          <strong> decreasing interest rate </strong>
-          to see a different tables.
+          Switch between the two tabs below to see a different table.
         </i>
       </p>
       <div style={{ display: 'flex', width: '100%', minWidth: 250 }}>
@@ -98,8 +93,8 @@ const Savings = (props) => {
 
       <p>
         <i>
-          Note: the data displayed in the table above assumes interest compounds
-          monthly and the interest rate is fixed.
+          Data displayed in the table above assumes
+          interest compounds monthly and the interest rate is fixed.
         </i>
       </p>
     </section>

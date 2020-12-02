@@ -8,21 +8,21 @@ const StyledArrowUp = withStyles({
     transition: 'transform 0.2s',
     fontSize: 60,
     position: 'absolute',
+    right: 0,
   },
 })(ArrowDropUpRoundedIcon);
 
-/* TODO: convert IDS to classes for reusability */
 const CalcSwitch = (props) => {
   const { isCalcFormExpanded, setCalcExpanded } = props;
 
   return (
     <button
       id="calc-switch"
-      className="button-base text-align--left padding--8x16 padding-right--0"
+      className="button-base text-align--left padding--8x16"
       type="button"
       onClick={() => setCalcExpanded(!isCalcFormExpanded)}
     >
-      <p id="calc-switch-text">Student Loan</p>
+      <p id="calc-switch-text" className="margin--none">Student Loan</p>
       <StyledArrowUp className={`${isCalcFormExpanded ? '' : 'transform--rotate180'}`} />
     </button>
   );

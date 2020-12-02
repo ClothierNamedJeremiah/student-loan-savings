@@ -13,11 +13,9 @@ const App = () => {
     && 'totalInterestPaid' in loanDetails
     && loanDetails.monthsTillPayoffDate !== 361;
 
-  /* TODO: restructure DOM for 'Loan Details Section' */
   return (
-    <div className="grid-center margin-responsive">
+    <div className="grid-center margin-shrinks">
       <Header />
-      {/* <main> */}
       <LoanDetails
         loanDetails={loanDetails}
         setLoanDetails={setLoanDetails}
@@ -25,7 +23,6 @@ const App = () => {
       />
       {isValidLoan
         && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />}
-      {/* </main> */}
     </div>
   );
 };

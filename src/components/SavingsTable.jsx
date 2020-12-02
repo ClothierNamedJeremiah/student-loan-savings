@@ -53,12 +53,11 @@ const SavingsTable = (props) => {
     });
   }, []);
 
-  /* TODO: Update Button */
   return (
     <table>
       <thead>
-        <tr>
-          <th>
+        <tr className="text-align--center fs-white-on-black">
+          <th className="grid-center grid-columns--2">
             {!isLeftArrowVisible && !isRightArrowVisible
               ? null
               : (
