@@ -3,9 +3,9 @@
 A tool that shows students how much they could reduce the total interest paid over the lifetime of their loan.
 
 ## Preview
-Loan Details |
-:-------------------------:
-![Loan Details](images-readme/loan-details.png)
+Loan Details | Loan Savings
+:-------------------------:|:-------------------------:
+![Loan Details](images-readme/loan-details.png) | ![Loan Savings](images-readme/loan-savings.png)
 
 ## Installation
 1. Install all project dependencies with `npm install`
