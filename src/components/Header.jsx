@@ -12,7 +12,7 @@ const Header = () => (
         reduce the total interest paid over the lifetime of your loan.
       </p>
       <p>
-        <em>Fill out the form below and see how much you could be saving.</em>
+        <i>Fill out the form below and see how much you could be saving.</i>
       </p>
     </article>
   </header>

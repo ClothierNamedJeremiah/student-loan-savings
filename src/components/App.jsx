@@ -15,17 +15,17 @@ const App = () => {
 
   /* TODO: restructure DOM for 'Loan Details Section' */
   return (
-    <div className="grid-center">
+    <div className="grid-center margin-responsive">
       <Header />
-      <main>
-        <LoanDetails
-          loanDetails={loanDetails}
-          setLoanDetails={setLoanDetails}
-          setLoanSavings={setLoanSavings}
-        />
-        {isValidLoan
-          && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />}
-      </main>
+      {/* <main> */}
+      <LoanDetails
+        loanDetails={loanDetails}
+        setLoanDetails={setLoanDetails}
+        setLoanSavings={setLoanSavings}
+      />
+      {isValidLoan
+        && <Savings loanSavings={loanSavings} loanDetails={loanDetails} />}
+      {/* </main> */}
     </div>
   );
 };

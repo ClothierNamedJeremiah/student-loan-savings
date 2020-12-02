@@ -43,9 +43,8 @@ const Savings = (props) => {
     <section id="savings">
       <h2 className="section-title margin--bot">Loan Savings</h2>
       <p>
-        The <strong>table below illustrates how the payoff date and total interest paid
-        change </strong> when your monthly payment increases or when your interest rate
-        decreases.
+        The table below illustrates how both values: <b>payoff date</b> and <b>total interest paid </b>
+        change when either monthly payment increases or interest rate decreases.
       </p>
       <p>
         The table allows comparison between your current loan details and expected
@@ -53,13 +52,13 @@ const Savings = (props) => {
         monthly payments or decreasing the interest rate.</strong>
       </p>
       <p>
-        <em>
+        <i>
           Toggle between
           <strong> increasing monthly payment </strong>
           and
           <strong> decreasing interest rate </strong>
           to see a different tables.
-        </em>
+        </i>
       </p>
       <div style={{ display: 'flex', width: '100%', minWidth: 250 }}>
         <Tooltip title={TOOLTIP_HIGHER_MONTHLY_PAYMENT} placement="top">
@@ -98,10 +97,10 @@ const Savings = (props) => {
       }
 
       <p>
-        <em>
+        <i>
           Note: the data displayed in the table above assumes interest compounds
           monthly and the interest rate is fixed.
-        </em>
+        </i>
       </p>
     </section>
   );

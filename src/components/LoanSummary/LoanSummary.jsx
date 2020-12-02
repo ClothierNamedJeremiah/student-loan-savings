@@ -30,7 +30,7 @@ const LoanSummary = (props) => {
         <article className="padding--10 padding-left--4">
           <h3 className="margin--none">PAYOFF DATE</h3>
           <h4 className="margin--none font-weight--500">{payoffDateEstimate}</h4>
-          <em className="margin--none">{timeUntilPayoffStr}</em>
+          <i className="margin--none">{timeUntilPayoffStr}</i>
         </article>
         <article className="padding--10 padding-left--4">
           <h3 className="margin--none">TOTAL INTEREST PAID</h3>
