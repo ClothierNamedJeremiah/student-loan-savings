@@ -1,6 +1,6 @@
 # Student Loan Savings
 
-A tool that shows students how much they could reduce the total interest paid over the lifetime of their loan.
+A tool that shows students how much they could reduce the total interest paid over the lifetime of their loan. [Use the tools now](https://studentloansavings.info/) and see how much you could be saving.
 
 ## Preview
 Loan Details | Loan Savings
