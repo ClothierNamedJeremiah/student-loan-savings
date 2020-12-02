@@ -217,6 +217,12 @@ th {
 
 
 /* RESPONSIVE STYLES */
+@media (max-width: 850px) {
+  tbody > tr {
+    white-space: unset;
+  }
+}
+
 @media (max-width: 725px) {
   table, thead, tbody {
     display: block;

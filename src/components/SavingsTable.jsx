@@ -63,10 +63,18 @@ const SavingsTable = (props) => {
               ? null
               : (
                 <>
-                  <button type="button" onClick={() => handleClick(0)} className={isLeftArrowVisible ? '' : 'visibility--hidden'}>
+                  <button
+                    className={isLeftArrowVisible ? 'button-base' : 'button-base visibility--hidden'}
+                    type="button"
+                    onClick={() => handleClick(0)}
+                  >
                     <ArrowBackIosRoundedIcon />
                   </button>
-                  <button type="button" onClick={() => handleClick(1)} className={isRightArrowVisible ? '' : 'visibility--hidden'}>
+                  <button
+                    className={isRightArrowVisible ? 'button-base' : 'button-base visibility--hidden'}
+                    type="button"
+                    onClick={() => handleClick(1)}
+                  >
                     <ArrowForwardIosRoundedIcon />
                   </button>
                 </>
