@@ -46,7 +46,7 @@ const Savings = (props) => {
         The table below provides a comparison between your current and adjusted loan details, which
         shows that
         <strong>
-          &nbsp;both time and money can be saved by increasing monthly payments or
+          &nbsp;both time and money will be saved by increasing monthly payments or
           decreasing the interest rate.
         </strong>
       </p>
