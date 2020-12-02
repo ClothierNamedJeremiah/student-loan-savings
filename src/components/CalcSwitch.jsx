@@ -6,6 +6,9 @@ import ArrowDropUpRoundedIcon from '@material-ui/icons/ArrowDropUpRounded';
 const StyledArrowUp = withStyles({
   root: {
     transition: 'transform 0.2s',
+    fontSize: 60,
+    position: 'absolute',
+    right: 0,
   },
 })(ArrowDropUpRoundedIcon);
 
@@ -13,12 +16,14 @@ const CalcSwitch = (props) => {
   const { isCalcFormExpanded, setCalcExpanded } = props;
 
   return (
-    <button type="button" id="calc-switch" onClick={() => setCalcExpanded(!isCalcFormExpanded)}>
-      <p id="calc-switch-text">Student Loan</p>
-      <StyledArrowUp
-        className={`${isCalcFormExpanded ? '' : 'tt-180'}`}
-        style={{ fontSize: '60', position: 'absolute' }}
-      />
+    <button
+      id="calc-switch"
+      className="button-base text-align--left padding--8x16"
+      type="button"
+      onClick={() => setCalcExpanded(!isCalcFormExpanded)}
+    >
+      <p id="calc-switch-text" className="margin--none">Student Loan</p>
+      <StyledArrowUp className={`${isCalcFormExpanded ? '' : 'transform--rotate180'}`} />
     </button>
   );
 };

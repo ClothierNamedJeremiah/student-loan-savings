@@ -7,9 +7,9 @@ import {
   toCurrencyString,
 } from '../../helpers/formatter';
 
-import LoanDetails from './LoanDetails';
+import LoanSummary from './LoanSummary';
 
-const LoanDetailsContainer = (props) => {
+const LoanSummaryContainer = (props) => {
   const { loanDetails } = props;
   const { monthsTillPayoffDate, totalInterestPaid } = loanDetails;
 
@@ -25,7 +25,8 @@ const LoanDetailsContainer = (props) => {
   }
 
   return (
-    <LoanDetails
+    <LoanSummary
+      error={monthsTillPayoffDate === 361}
       payoffDateEstimate={addMonthsToNow(monthsTillPayoffDate)}
       timeUntilPayoffStr={timeUntilPayoffStr}
       totalInterestPaidStr={toCurrencyString(totalInterestPaid, 2, ' ')}
@@ -33,11 +34,11 @@ const LoanDetailsContainer = (props) => {
   );
 };
 
-LoanDetailsContainer.propTypes = {
+LoanSummaryContainer.propTypes = {
   loanDetails: PropTypes.shape({
     monthsTillPayoffDate: PropTypes.number.isRequired,
     totalInterestPaid: PropTypes.number.isRequired,
   }).isRequired,
 };
 
-export default LoanDetailsContainer;
+export default LoanSummaryContainer;

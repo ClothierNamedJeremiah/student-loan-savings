@@ -1,8 +1,5 @@
-## Required
-- Scroll Snap on Safari and iOS
-- Decmial Numpad on iOS
-
 ## Low Impact
+- Violations are generated when user submits a value with large number?
 - General CSS & Component Cleanup
 - Docstrings for `./helpers/` methods and enforce types
 

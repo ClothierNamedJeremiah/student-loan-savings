@@ -14,6 +14,7 @@
  --box-shadow-strong: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
+/* GLOBAL STYLES */
 *, :after, :before {
   box-sizing: border-box;
 }
@@ -32,36 +33,50 @@ h1, h2, h3, h4, h5 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   line-height: 1.2857em;
-  padding: 0;
-  margin: 0;
   text-transform: uppercase;
-}
-
-button {
-  all: unset; /* remove default styles */
-  -webkit-tap-highlight-color: transparent;
-}
-
-/*
-  Prevents background color from appearing when the form
-  button is clicked (expands and shrinks).
-*/
-input, textarea, button, select, a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-h2 {
-  color: var(--color-grey);
 }
 
 strong {
   font-weight: 700;
 }
 
-#description {
-  margin: 4%
+th > button > svg {
+  border-radius: 4px;
+  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
 }
+/* END OF GLOBAL STYLES */
 
+
+/* BASE STYLES */
+.button-base {
+  color: inherit;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  border-radius: 0;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  background-color: transparent;
+
+  /*
+    Prevents background color from appearing blue when
+    the button to expand the form is clicked on mobile
+  */
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+/* END OF BASE STYLES */
+
+
+/* TABLE STYLES */
 table {
   border-collapse: collapse;
   min-width: 250px;
@@ -71,18 +86,13 @@ table {
   box-shadow: var(--box-shadow-strong);
 }
 
-thead, tbody, tr {
-  text-align: center;
-}
-
 thead {
   background-color: #000;
+  text-transform: uppercase;
 }
 
 thead th:first-child {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  place-items: center;
+  background-color: inherit;
 }
 
 thead th:not(:first-child) {
@@ -91,7 +101,6 @@ thead th:not(:first-child) {
 
 tbody > tr {
   border-top: 1px solid rgba(224, 224, 224, 1);
-  white-space: nowrap;
 }
 
 /* Zebra Striping */
@@ -102,88 +111,22 @@ tr:nth-child(odd) td {
 th, td {
   padding: 8px 16px;
 }
+/* END OF TABLE STYLES */
 
-th {
-  font-weight: 500;
-  text-transform: uppercase;
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-/* font-style */
-.fs-medium {
-  font-weight: 500;
-}
-
-.fs-light {
-  font-weight: 300;
-  font-style: italic;
-}
-
-.no-margin {
-  margin: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-} .top-margin {
-  margin-top: 1rem;
-} .bot-margin {
-  margin-bottom: 1rem;
-}
-
-#wrapper {
-  margin: 5%;
-  display: grid;
-  place-items: center;
-}
-
-#title {
-  color: var(--color-dark-green);
-  letter-spacing: 0.04em;
-}
-
+/* ID STYLES */
 #calc {
-  width: fit-content;
-  max-width: 250px;
-  background-color: #fff;
-  transition: height 0.2s;
-  will-change: height;
+  background-color: var(--color-white);
   box-shadow: var(--box-shadow-weak);
   border-radius: 4px;
   border-left: 5px solid var(--color-dark-green);
 } #calc-switch {
-  box-sizing: border-box;
+  height: 48px;
   width: 100%;
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px 16px;
-  height: 3em; /* Fixed Height because Material UI SVG scales wierd */
 } #calc-switch-text {
-  margin: 0;
   flex-grow: 1;
   font-size: 18px;
-} #calc-form {
-  display: grid;
-  place-items: center;
-  padding: 8px 16px;
-  row-gap: 1em;
-  padding-bottom: 1em;
-}
-
-.expandable {
-  height: 0px;
-  overflow: hidden;
-  transition: height .6s cubic-bezier(.4,0,.2,1);
-  will-change: height;
-}
-
-.tt-180 {
-  transform: rotate(-180deg);
-} .tt-none {
-  transition: transform 0.2s;
+  font-family: 'Roboto', sans-serif;
 }
 
 #savings {
@@ -191,11 +134,89 @@ th {
   padding: 10px 16px;
   max-width: 750px;
   overflow-x: auto;
+  overscroll-behavior: contain;
+}
+/* END OF ID STYLES */
+
+/* LAYOUT STYLES */
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+.grid-columns--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.row-gap--1 { row-gap: 1em; }
+
+.width--100 { width: 100%; }
+.max-width--400 { max-width: 400px; }
+.max-width--240 { max-width: 240px; }
+
+.margin-top--1 { margin-top: 1rem; }
+.margin-top--none { margin-top: 0; }
+.margin-shrinks { margin: 5%; }
+.margin--none {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
-#loan-details {
-  width: 275px;
-  padding: 24px 16px;  
+.padding--16 { padding: 16px; }
+.padding--10 { padding: 10px; }
+.padding--8x16 { padding: 8px 16px; }
+.padding-top--8 { padding-top: 8px; }
+.padding-left--4 { padding-left: 4px; }
+/* END OF LAYOUT STYLES */
+
+
+/* TEXT STYLES */
+.text-align--left { text-align: left; }
+.text-align--center { text-align: center; }
+.font-weight--500 { font-weight: 500; }
+
+.fs-error {
+  color: red;
+  font-weight: 500;
+}
+.fs-white-on-black {
+  font-weight: 500;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+.section-title {
+  color: var(--color-dark-green);
+  letter-spacing: 0.04em;
+}
+/* END OF TEXT STYLES*/
+
+
+/* OTHER STYLES */
+.will-change--height-0 {
+  height: 0px;
+  overflow-y: hidden;
+  transition: height .6s cubic-bezier(.4,0,.2,1);
+  will-change: height;
+}
+.transform--rotate180 {
+  transform: rotate(-180deg);
+}
+.visibility--hidden {
+  visibility: hidden;
+}
+.white-space--nowrap {
+  white-space: nowrap;
+}
+/* END OF OTHER STYLES */
+
+
+/* RESPONSIVE STYLES */
+/* If screen size is more than 825px wide, don't let table rows wrap text */
+@media (min-width: 825px) {
+  tbody > tr {
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 725px) {
@@ -213,6 +234,7 @@ th {
     scroll-snap-type: x mandatory;
     overscroll-behavior-x: contain;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 
   thead {
@@ -225,10 +247,6 @@ th {
   /* Convert the table to only display 3 columns */
   tbody, thead {
     width: calc(5/3 * 100%);
-  }
-
-  tbody > tr {
-    white-space: normal;
   }
 
   tr {
@@ -254,27 +272,9 @@ th {
     padding: 4px;
   }
 
-  #wrapper { 
-    margin: 5% 10px;
+  .margin-shrinks { 
+    margin: 10px;
   }
-}
-
-@media (max-width: 350px) {
-  #loan-details {
-    width: 100%;
-  }
-  #wrapper {
-    margin: 5% 2px;
-  }
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-th > button > svg {
-  border-radius: 4px;
-  transition: background-color .6s cubic-bezier(.4,0,.2,1);;
 }
 
 /* Only apply stylse to devices with hover capability */
@@ -286,3 +286,4 @@ th > button > svg {
     transition: background-color .6s cubic-bezier(.4,0,.2,1);
   }
 }
+/* END OF RESPONSIVE STYLES */
