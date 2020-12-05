@@ -1,5 +1,5 @@
 ## Low Impact
-- Investiage timing violations on form submissions with large numbers 
+- Investigate timing violations on form submissions with large numbers 
 - Docstrings for `./helpers/` methods and enforce types
 
 ## Considerations
