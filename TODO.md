@@ -1,6 +1,5 @@
 ## Low Impact
-- Violations are generated when user submits a value with large number?
-- General CSS & Component Cleanup
+- Investiage timing violations on form submissions with large numbers 
 - Docstrings for `./helpers/` methods and enforce types
 
 ## Considerations
