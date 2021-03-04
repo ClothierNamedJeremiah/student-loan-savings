@@ -12,4 +12,4 @@ Loan Details | Loan Savings
 ## Installation
 1. Install all project dependencies with `npm install`
 2. Start the development server with `npm start`
-3. Navigate to [localhost:2595](http://localhost:2595) and view the 
+3. Navigate to [localhost:2595](http://localhost:2595) and view the website
