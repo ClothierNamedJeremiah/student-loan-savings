@@ -3,8 +3,6 @@
   // https://docs.renovatebot.com/merge-confidence/#enabling-and-disabling
   extends: ['config:base', 'group:allNonMajor', 'github>whitesource/merge-confidence:beta'],
   prConcurrentLimit: 1,
-  // Custom ignore paths to include our `examples/` directory
-  ignorePaths: ['**/images-readme/**', '**/public/**'],
   enabledManagers: ['npm'],
   // Ignore release notes for non-breaking changes
   fetchReleaseNotes: false,
@@ -48,7 +46,8 @@
     },
     // Group React packages together
     {
-      packageNames: ['react', '@types/react', 'react-dom', '@types/react-dom'],
+      // packageNames: ['react', '@types/react', 'react-dom', '@types/react-dom'],
+      packageNames: ['react', 'react-dom'],
       groupName: 'react',
     },
   ],
