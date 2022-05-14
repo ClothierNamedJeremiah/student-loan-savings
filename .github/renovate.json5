@@ -53,6 +53,6 @@
     },
   ],
   // Simplifies the PR body
-  prBodyTemplate: '{{{table}}}{{{notes}}}{{{changelogs}}}',
+  // prBodyTemplate: '{{{table}}}{{{notes}}}{{{changelogs}}}',
   prBodyColumns: ['Package', 'Change'],
 }
