@@ -31,19 +31,20 @@
       // Get us the release notes for potentially breaking changes
       fetchReleaseNotes: true,
     },
+    // Disabled because we don't have any packages this low of a version
     // Handle minor updates under 1.0.0 as potentially breaking
     // Workaround for https://github.com/renovatebot/renovate/issues/3588
-    {
-      managers: ['npm'],
-      matchCurrentVersion: '<1.0.0 >=0.1.0',
-      minor: {
-        // FIXME: "rangeStrategy": "replace",
-        groupName: 'maybe breaking minor updates',
-        groupSlug: 'maybe-breaking-minor',
-        // Get us the release notes for potentially breaking changes
-        fetchReleaseNotes: true,
-      },
-    },
+    // {
+    //   managers: ['npm'],
+    //   matchCurrentVersion: '<1.0.0 >=0.1.0',
+    //   minor: {
+    //     // FIXME: "rangeStrategy": "replace",
+    //     groupName: 'maybe breaking minor updates',
+    //     groupSlug: 'maybe-breaking-minor',
+    //     // Get us the release notes for potentially breaking changes
+    //     fetchReleaseNotes: true,
+    //   },
+    // },
     // Group React packages together
     {
       // packageNames: ['react', '@types/react', 'react-dom', '@types/react-dom'],
