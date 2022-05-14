@@ -1,7 +1,6 @@
 {
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
-  // https://docs.renovatebot.com/merge-confidence/#enabling-and-disabling
-  extends: ['config:base', 'group:allNonMajor', 'github>whitesource/merge-confidence:beta'],
+  extends: ['config:base', 'group:allNonMajor'],
   prConcurrentLimit: 1,
   enabledManagers: ['npm'],
   // Ignore release notes for non-breaking changes
@@ -54,5 +53,7 @@
   ],
   // Simplifies the PR body
   prBodyTemplate: '{{{table}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}',
-  prBodyColumns: ['Package', 'Change', 'Type', 'Age'],
+  prBodyColumns: ['Package', 'Type', 'Change'],
+  // https://docs.renovatebot.com/merge-confidence/#enabling-and-disabling,
+  ignorePresets: ['github>whitesource/merge-confidence:beta'],
 }
