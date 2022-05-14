@@ -54,5 +54,5 @@
   ],
   // Simplifies the PR body
   prBodyTemplate: '{{{table}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}',
-  prBodyColumns: ['Package', 'Change'],
+  prBodyColumns: ['Package', 'Change', 'Type', 'Age'],
 }
