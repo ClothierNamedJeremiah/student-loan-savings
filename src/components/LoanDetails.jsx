@@ -2,25 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Calculator from './Calculator';
-import LoanSummaryContainer from './LoanSummary/LoanSummaryContainer';
+import LazyLoanSummaryContainer from './LoanSummary/LazyLoanSummaryContainer';
 
 const LoanDetails = (props) => {
   const { loanDetails, setLoanDetails, setLoanSavings } = props;
   // payoffDateEstimate, timeUntilPayoffStr, totalInterestPaidStr
 
-  const hasLoanInformationBeenSubmitted = loanDetails.constructor === Object
-    && 'monthsTillPayoffDate' in loanDetails
-    && 'totalInterestPaid' in loanDetails;
+  const hasLoanInformationBeenSubmitted =
+    loanDetails.constructor === Object &&
+    'monthsTillPayoffDate' in loanDetails &&
+    'totalInterestPaid' in loanDetails;
 
   return (
     <section className="grid-center">
       <h2 className="section-title margin-top--none">Loan Details</h2>
-      <Calculator
-        setLoanDetails={setLoanDetails}
-        setLoanSavings={setLoanSavings}
-      />
-      {hasLoanInformationBeenSubmitted
-        && <LoanSummaryContainer loanDetails={loanDetails} />}
+      <Calculator setLoanDetails={setLoanDetails} setLoanSavings={setLoanSavings} />
+      {hasLoanInformationBeenSubmitted && <LazyLoanSummaryContainer loanDetails={loanDetails} />}
     </section>
   );
 };

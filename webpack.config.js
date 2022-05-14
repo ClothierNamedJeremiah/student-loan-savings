@@ -21,7 +21,6 @@ module.exports = {
 
   devServer: {
     port: 2595,
-    open: 'Google Chrome',
   },
 
   module: {
@@ -37,11 +36,8 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: [
-                [
-                  '@babel/preset-env',
-                  { targets: 'defaults' },
-                ],
-                '@babel/preset-react',
+                ['@babel/preset-env', { targets: 'defaults' }],
+                ['@babel/preset-react', { runtime: 'automatic' }],
               ],
             },
           },

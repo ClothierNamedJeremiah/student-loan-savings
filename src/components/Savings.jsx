@@ -5,8 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 import SavingsTable from './SavingsTable';
 
-const TOOLTIP_HIGHER_MONTHLY_PAYMENT = 'See how much you\'d save by increasing your monthly payment';
-const TOOLTIP_LOWER_INTEREST_RATE = 'See how much you\'d save by decreasing your interest rate';
+const TOOLTIP_HIGHER_MONTHLY_PAYMENT = "See how much you'd save by increasing your monthly payment";
+const TOOLTIP_LOWER_INTEREST_RATE = "See how much you'd save by decreasing your interest rate";
 
 const StyledButton = withStyles({
   root: {
@@ -46,14 +46,9 @@ const Savings = (props) => {
         The table below provides a comparison between your current and adjusted loan details, which
         shows that
         <strong>
-          &nbsp;both time and money will be saved by increasing monthly payments or
-          decreasing the interest rate.
+          &nbsp;both time and money will be saved by increasing monthly payments or decreasing the
+          interest rate.
         </strong>
-      </p>
-      <p>
-        <i>
-          Switch between the two tabs below to see a different table.
-        </i>
       </p>
       <div style={{ display: 'flex', width: '100%', minWidth: 250 }}>
         <Tooltip title={TOOLTIP_HIGHER_MONTHLY_PAYMENT} placement="top">
@@ -76,25 +71,16 @@ const Savings = (props) => {
         </Tooltip>
       </div>
 
-      {value === 0
-        ? (
-          <SavingsTable
-            loanSavings={higherMonthlyPayment}
-            tableType="higherMonthlyPayment"
-          />
-        )
-        : (
-          <SavingsTable
-            loanSavings={lowerInterestRate}
-            tableType="lowerInterestRate"
-          />
-        )
-      }
+      {value === 0 ? (
+        <SavingsTable loanSavings={higherMonthlyPayment} tableType="higherMonthlyPayment" />
+      ) : (
+        <SavingsTable loanSavings={lowerInterestRate} tableType="lowerInterestRate" />
+      )}
 
       <p>
         <i>
-          Data displayed in the table above assumes
-          interest compounds monthly and the interest rate is fixed.
+          Data displayed in the table above assumes interest compounds monthly and the interest rate
+          is fixed.
         </i>
       </p>
     </section>
