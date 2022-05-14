@@ -1,7 +1,5 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
-import React from 'react';
-
 const Header = () => (
   <header>
     <h1 className="section-title margin--none text-align--center">Student Loan Savings</h1>

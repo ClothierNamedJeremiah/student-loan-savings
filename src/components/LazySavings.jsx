@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import PropTypes from 'prop-types';
 
 const Savings = lazy(() => import('./Savings'));
