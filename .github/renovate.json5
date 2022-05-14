@@ -5,7 +5,7 @@
   prConcurrentLimit: 1,
   enabledManagers: ['npm'],
   // Ignore release notes for non-breaking changes
-  fetchReleaseNotes: false,
+  fetchReleaseNotes: true,
   // Always bump minor/patch to latest
   rangeStrategy: 'bump',
   major: {
@@ -53,6 +53,6 @@
     },
   ],
   // Simplifies the PR body
-  // prBodyTemplate: '{{{table}}}{{{notes}}}{{{changelogs}}}',
+  prBodyTemplate: '{{{table}}}{{{notes}}}{{{changelogs}}}{{{controls}}}{{{footer}}}',
   prBodyColumns: ['Package', 'Change'],
 }
